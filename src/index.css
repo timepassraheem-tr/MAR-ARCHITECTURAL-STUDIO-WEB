@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-dark: #08090b;
+    --accent-gold: #F5C242;
+    --accent-gold-light: #FFE885;
+    --accent-gold-dark: #D49B24;
+    --accent-cyan: #ffffff;
+  }
+
+  body {
+    background-color: transparent;
+    color: #f8fafc;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom luxury scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2e38;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F5C242;
+  box-shadow: 0 0 10px #F5C242;
+}
+
+/* Blueprint grid background utility */
+.blueprint-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.blueprint-grid-dense {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(245, 194, 66, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 194, 66, 0.06) 1px, transparent 1px);
+}
+
+/* Subtle architectural scanline */
+.cinematic-vignette {
+  background: radial-gradient(
+    circle at center,
+    transparent 45%,
+    rgba(8, 9, 11, 0.45) 85%,
+    rgba(8, 9, 11, 0.85) 100%
+  );
+}
+
+/* High-performance architectural panel */
+.glass-panel {
+  background: rgba(17, 19, 23, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: rgba(17, 19, 23, 0.9);
+  border: 1px solid rgba(245, 194, 66, 0.45);
+  box-shadow: 0 0 18px rgba(245, 194, 66, 0.15);
+}
+
+/* Hide native video controls always */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Text stroke for large numbers */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+
+.text-outline-gold {
+  -webkit-text-stroke: 1.5px rgba(245, 194, 66, 0.7);
+  filter: drop-shadow(0 0 10px rgba(245, 194, 66, 0.4));
+  color: transparent;
+}
+
+/* ========================================================= */
+/* LUXURY SHINING GOLDEN DESIGN SYSTEM                       */
+/* ========================================================= */
+
+@keyframes goldGleam {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes goldPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba(245, 194, 66, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(245, 194, 66, 0.7), 0 0 8px rgba(255, 238, 140, 0.8);
+  }
+}
+
+@keyframes goldSheen {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  40%, 100% {
+    transform: translateX(250%) skewX(-25deg);
+  }
+}
+
+/* Dynamic shining metallic gold text with gleam */
+.text-gold-shining {
+  background: linear-gradient(120deg, #F5C242 0%, #FFF5B8 28%, #D49B24 50%, #FFEAA0 72%, #F5C242 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldGleam 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(245, 194, 66, 0.45));
+}
+
+/* Constant radiant shining gold color with specular glow */
+.text-gold-radiant {
+  color: #F5C242;
+  text-shadow: 0 0 12px rgba(245, 194, 66, 0.55), 0 0 24px rgba(245, 194, 66, 0.25);
+}
+
+/* Shining metallic gold button with light sheen */
+.gold-shining-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #F5C242 0%, #FFF5B8 30%, #D49B24 65%, #FFE27A 100%);
+  background-size: 200% auto;
+  color: #0b0a07;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(245, 194, 66, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.gold-shining-btn:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 0 35px rgba(245, 194, 66, 0.8), 0 0 10px rgba(255, 238, 140, 0.9), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.gold-shining-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: goldSheen 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Shining golden border with ambient luminescence */
+.gold-border-shining {
+  border-color: #F5C242;
+  box-shadow: 0 0 15px rgba(245, 194, 66, 0.3), inset 0 0 8px rgba(245, 194, 66, 0.12);
+}
+
+/* Shining golden pill badge */
+.gold-badge-shining {
+  background: rgba(245, 194, 66, 0.08);
+  border: 1px solid rgba(245, 194, 66, 0.55);
+  color: #FFE685;
+  box-shadow: 0 0 14px rgba(245, 194, 66, 0.25);
+  text-shadow: 0 0 8px rgba(245, 194, 66, 0.5);
+}
+
+/* ========================================================= */
+/* CRISP NORMAL WHITE DESIGN UTILITIES                      */
+/* ========================================================= */
+
+/* Normal crisp white text (replaces shiny white) */
+.text-white-shining {
+  color: #ffffff;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
+  animation: none;
+  filter: none;
+}
+
+/* Normal clear white text */
+.text-white-radiant {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/* Normal white badge */
+.white-badge-shining {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/* Normal crisp white button */
+.white-shining-btn {
+  background: #ffffff;
+  color: #08090b;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.white-shining-btn:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+/* Normal white border */
+.white-border-shining {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: none;
+}
