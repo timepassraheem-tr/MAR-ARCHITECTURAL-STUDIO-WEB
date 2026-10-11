@@ -162,47 +162,47 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
   };
 
   return (
-    <section id="contact" className={`relative w-full ${isStandalone ? 'pt-4 pb-12 md:pb-16' : 'pt-16 pb-16 md:pt-20 md:pb-20 border-t border-white/10'} bg-transparent text-[#f8fafc] overflow-hidden z-10`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+    <section id="contact" className={`relative w-full ${isStandalone ? 'pt-4 pb-12 md:pb-16' : 'pt-12 pb-16 md:pt-20 md:pb-20 border-t border-white/10'} bg-transparent text-[#f8fafc] overflow-hidden z-10`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div id="contact-header-text" className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-5 border-b border-white/15 gap-6">
+        <div id="contact-header-text" className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 pb-5 border-b border-white/15 gap-4 sm:gap-6">
           <div>
             <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-3 flex items-center gap-2 font-bold">
               <span className="w-2 h-2 bg-[#F5C242] shadow-[0_0_8px_#F5C242]" />
               {isStandalone ? 'PAGE 05 // DIRECT ENGAGEMENT' : 'SECTION 09 // COMMISSION A LANDMARK'}
             </div>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold text-white tracking-tight break-words">
               COMMISSION A <span className="text-gold-shining inline-block">LANDMARK.</span>
             </h2>
           </div>
-          <div className="text-right font-mono text-xs text-slate-400 max-w-xs">
+          <div className="text-left md:text-right font-mono text-xs text-slate-400 max-w-xs">
             CONFIDENTIAL ARCHITECTURAL INTAKE<br />
             DIRECT TRANSMISSION TO OWNER MOHAMMED ABDUL RAHMAN
           </div>
         </div>
 
         {/* Technical Intake Status Bar with Official Gmail & WhatsApp */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-5 border-b border-white/15 gap-4">
-          <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#F5C242] shadow-[0_0_10px_#F5C242] animate-ping" />
-            <span className="text-xs font-mono text-gold-radiant uppercase tracking-wider font-bold">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-5 border-b border-white/15 gap-3 sm:gap-4">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#F5C242] shadow-[0_0_10px_#F5C242] animate-ping shrink-0" />
+            <span className="text-[10px] sm:text-xs font-mono text-gold-radiant uppercase tracking-wider font-bold">
               DIRECT PRINCIPAL ENGAGEMENT // INTAKE DOSSIER
             </span>
           </div>
-          <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+          <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-xs font-mono max-w-full">
             <a 
               href="mailto:mararchitecturalstudio@gmail.com" 
-              className="px-3 py-1.5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-sm text-white font-bold flex items-center gap-2 transition-all shadow-sm"
+              className="px-2.5 py-1.5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-sm text-white font-bold flex items-center gap-1.5 transition-all shadow-sm break-all"
             >
-              <Mail className="w-3.5 h-3.5 text-[#F5C242]" />
-              <span>mararchitecturalstudio@gmail.com</span>
+              <Mail className="w-3.5 h-3.5 text-[#F5C242] shrink-0" />
+              <span className="truncate">mararchitecturalstudio@gmail.com</span>
             </a>
             <a 
               href="https://wa.me/919985185209" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/60 rounded-sm text-[#25D366] font-bold flex items-center gap-2 transition-all shadow-[0_0_12px_rgba(37,211,102,0.2)]"
+              className="px-2.5 py-1.5 bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/60 rounded-sm text-[#25D366] font-bold flex items-center gap-1.5 transition-all shadow-[0_0_12px_rgba(37,211,102,0.2)] shrink-0"
             >
               <span>+91 9985185209</span>
             </a>
@@ -212,7 +212,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Inquiry Form - Solid Black Background with strict h-fit */}
-          <div className="lg:col-span-7 rounded-sm bg-black border border-white/20 p-6 md:p-8 relative shadow-2xl h-fit">
+          <div className="lg:col-span-7 rounded-sm bg-black border border-white/20 p-4 sm:p-6 md:p-8 relative shadow-2xl h-fit">
             <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-white/10">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 min-w-[32px] max-w-[32px] min-h-[32px] max-h-[32px] rounded-full border border-[#F5C242]/50 bg-black/80 p-0.5 flex items-center justify-center shrink-0 overflow-hidden">
@@ -308,7 +308,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
@@ -320,7 +320,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="e.g. Sir Julian Vance"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                   <div>
@@ -332,7 +332,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="e.g. Vance Holdings AG"
                       value={formData.organization}
                       onChange={(e) => setFormData({...formData, organization: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                 </div>
@@ -348,7 +348,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="julian@vance-invest.com"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                   <div>
@@ -361,7 +361,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="e.g. +91 9985185209"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                 </div>
@@ -377,7 +377,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="City, Coordinates or Region (Optional)"
                       value={formData.location}
                       onChange={(e) => setFormData({...formData, location: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                   <div>
@@ -389,7 +389,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="e.g. Ultra-Luxury Villa, Skyscraper, Resort..."
                       value={formData.typology}
                       onChange={(e) => setFormData({...formData, typology: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                 </div>
@@ -428,7 +428,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       <select
                         value={formData.currency}
                         onChange={(e) => setFormData({...formData, currency: e.target.value})}
-                        className="w-full bg-black/30 border border-white/15 px-3 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm cursor-pointer"
+                        className="w-full bg-black/30 border border-white/15 px-3 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm cursor-pointer"
                       >
                         {CURRENCY_OPTIONS.map((c) => (
                           <option key={c.code} value={c.code} className="bg-[#12161f] text-white">
@@ -449,7 +449,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                           placeholder="e.g. KWD, QAR, JPY"
                           value={formData.customCurrency}
                           onChange={(e) => setFormData({...formData, customCurrency: e.target.value})}
-                          className="w-full bg-black/30 border border-white/15 px-3 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                          className="w-full bg-black/30 border border-white/15 px-3 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                         />
                       </div>
                     )}
@@ -464,7 +464,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                         placeholder="e.g. 50,000,000 or 25 Crores or 100M+ (Optional)"
                         value={formData.budgetAmount}
                         onChange={(e) => setFormData({...formData, budgetAmount: e.target.value})}
-                        className="w-full bg-black/30 border border-white/15 px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                        className="w-full bg-black/30 border border-white/15 px-4 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                       />
                     </div>
                   </div>
@@ -502,7 +502,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                     placeholder="Outline spatial requirements, geotechnical context, site constraints, and completion horizon..."
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full bg-black/30 border border-white/15 p-4 text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                    className="w-full bg-black/30 border border-white/15 p-3.5 sm:p-4 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                   />
                 </div>
 
@@ -566,10 +566,10 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                 </div>
                 <div className="flex items-center justify-between text-[#cbd5e1] flex-wrap gap-1">
                   <span className="text-slate-400">GMAIL ID:</span>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 max-w-full">
                     <a 
                       href="mailto:mararchitecturalstudio@gmail.com?subject=Project%20Commission%20Inquiry%20-%20MAR%20Architectural%20Studio"
-                      className="text-white hover:underline font-bold text-[11px] tracking-tight"
+                      className="text-white hover:underline font-bold text-[10px] sm:text-[11px] tracking-tight truncate max-w-[190px] xs:max-w-none"
                     >
                       mararchitecturalstudio@gmail.com
                     </a>
@@ -585,7 +585,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                 </div>
                 <div className="flex items-center justify-between text-[#cbd5e1]">
                   <span className="text-slate-400">AVAILABILITY:</span>
-                  <span className="text-white flex items-center gap-1.5 font-bold">
+                  <span className="text-white flex items-center gap-1.5 font-bold text-[11px] sm:text-xs">
                     <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
                     DIRECT CONSULTATION
                   </span>
@@ -593,10 +593,10 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
               </div>
 
               {/* Direct Quick Action Buttons (Call, WhatsApp, Gmail) */}
-              <div className="grid grid-cols-3 gap-2 font-sans">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2 font-sans">
                 <a
                   href="tel:9985185209"
-                  className="py-2.5 px-2 bg-black/60 border border-white/20 hover:border-white text-white hover:text-white text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 rounded-sm transition-all shadow-sm"
+                  className="py-2.5 px-1 sm:px-2 bg-black/60 border border-white/20 hover:border-white text-white hover:text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 sm:gap-1.5 rounded-sm transition-all shadow-sm"
                   title="Call +91 9985185209"
                 >
                   <Phone className="w-3 h-3 text-white" />
@@ -606,7 +606,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                   href="https://wa.me/919985185209?text=Hello%20Mohammed%20Abdul%20Rahman,%20I%20would%20like%20to%20inquire%20about%20a%20project%20with%20MAR%20Architectural%20Studio."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2.5 px-2 bg-[#25D366]/20 border border-[#25D366] hover:bg-[#25D366] text-[#25D366] hover:text-black text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 rounded-sm transition-all shadow-md"
+                  className="py-2.5 px-1 sm:px-2 bg-[#25D366]/20 border border-[#25D366] hover:bg-[#25D366] text-[#25D366] hover:text-black text-[10px] sm:text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 sm:gap-1.5 rounded-sm transition-all shadow-md"
                   title="WhatsApp 9985185209"
                 >
                   <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
@@ -616,7 +616,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                 </a>
                 <a
                   href="mailto:mararchitecturalstudio@gmail.com?subject=Project%20Commission%20Inquiry%20-%20MAR%20Architectural%20Studio"
-                  className="py-2.5 px-2 bg-white/10 border border-white hover:bg-white text-white hover:text-black text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 rounded-sm transition-all shadow-sm"
+                  className="py-2.5 px-1 sm:px-2 bg-white/10 border border-white hover:bg-white text-white hover:text-black text-[10px] sm:text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 sm:gap-1.5 rounded-sm transition-all shadow-sm"
                   title="Email mararchitecturalstudio@gmail.com"
                 >
                   <Mail className="w-3 h-3 text-[#F5C242]" />

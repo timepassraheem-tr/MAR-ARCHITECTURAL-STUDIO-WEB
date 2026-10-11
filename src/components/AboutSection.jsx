@@ -41,8 +41,10 @@ export default function AboutSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+
       gsap.to('#about-header-text', {
-        yPercent: -20,
+        yPercent: isMobile ? -5 : -20,
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -52,7 +54,7 @@ export default function AboutSection() {
         }
       });
       gsap.to('#about-dossier', {
-        yPercent: -15,
+        yPercent: isMobile ? -5 : -15,
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -70,22 +72,22 @@ export default function AboutSection() {
     <section 
       id="about" 
       ref={sectionRef}
-      className="relative w-full py-28 md:py-36 bg-transparent text-[#f8fafc] border-t border-white/10 overflow-hidden z-10"
+      className="relative w-full py-16 sm:py-24 md:py-36 bg-transparent text-[#f8fafc] border-t border-white/10 overflow-hidden z-10"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div id="about-header-text" className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/15 gap-6" style={{ willChange: 'transform' }}>
+        <div id="about-header-text" className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 border-b border-white/15 gap-4 sm:gap-6" style={{ willChange: 'transform' }}>
           <div>
             <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-3 flex items-center gap-2 font-bold">
               <span className="w-2 h-2 bg-[#F5C242] shadow-[0_0_8px_#F5C242]" />
               SECTION 02 // STUDIO MANIFESTO
             </div>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] break-words">
               ARCHITECTURE BEYOND TEMPORALITY
             </h2>
           </div>
-          <div className="text-right font-mono text-xs text-[#cbd5e1] max-w-xs drop-shadow-md">
+          <div className="text-left md:text-right font-mono text-xs text-[#cbd5e1] max-w-xs drop-shadow-md">
             MAR ARCHITECTURAL STUDIO EST. 2008<br />
             STRUCTURAL ENGINEERING • CIVIC LANDMARKS • LUXURY ESTATES
           </div>
@@ -132,8 +134,8 @@ export default function AboutSection() {
           </div>
 
           {/* Right Blueprint Technical Dossier - Translucent Glass */}
-          <div id="about-dossier" className="lg:col-span-5 rounded-sm backdrop-blur-md bg-black/25 border border-white/20 p-6 md:p-8 relative group shadow-xl" style={{ willChange: 'transform' }}>
-            <div className="flex items-center justify-between mb-5">
+          <div id="about-dossier" className="lg:col-span-5 rounded-sm backdrop-blur-md bg-black/25 border border-white/20 p-5 sm:p-8 relative group shadow-xl" style={{ willChange: 'transform' }}>
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 min-w-[32px] max-w-[32px] min-h-[32px] max-h-[32px] rounded-full border border-[#F5C242]/40 bg-black/60 p-0.5 flex items-center justify-center shrink-0 overflow-hidden">
                   <img src="/logo.png" alt="MAR Architectural Studio Emblem" className="w-full h-full max-w-full max-h-full object-contain" />
@@ -147,20 +149,20 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="space-y-4 mb-6">
-              <div className="border-b border-white/10 pb-3 flex justify-between items-center text-xs font-mono">
+            <div className="space-y-3 sm:space-y-4 mb-6">
+              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-mono gap-1">
                 <span className="text-[#cbd5e1]">ISO 9001 / ISO 14001:</span>
                 <span className="text-white font-semibold">CERTIFIED CONTINUOUS</span>
               </div>
-              <div className="border-b border-white/10 pb-3 flex justify-between items-center text-xs font-mono">
+              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-mono gap-1">
                 <span className="text-[#cbd5e1]">BIM LEVEL 3 & 4D DIGITAL TWIN:</span>
                 <span className="text-[#F5C242] font-semibold drop-shadow-[0_0_6px_rgba(245,194,66,0.5)]">MANDATORY PIPELINE</span>
               </div>
-              <div className="border-b border-white/10 pb-3 flex justify-between items-center text-xs font-mono">
+              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-mono gap-1">
                 <span className="text-[#cbd5e1]">SEISMIC DAMPING CLASSIFICATION:</span>
                 <span className="text-white font-semibold">ZONE 4 BASE ISOLATION</span>
               </div>
-              <div className="border-b border-white/10 pb-3 flex justify-between items-center text-xs font-mono">
+              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-mono gap-1">
                 <span className="text-[#cbd5e1]">MAX CANTILEVER SPAN RATIO:</span>
                 <span className="text-white font-bold">1 : 8.4 POST-TENSIONED</span>
               </div>
@@ -175,7 +177,7 @@ export default function AboutSection() {
               <div className="text-base font-serif font-black text-white">Mohammed Abdul Rahman</div>
               <div className="text-[11px] font-sans text-slate-300 mt-1">
                 Direct Phone / WhatsApp:{' '}
-                <a href="https://wa.me/919985185209" target="_blank" rel="noopener noreferrer" className="text-gold-radiant font-bold hover:underline">
+                <a href="https://wa.me/919985185209" target="_blank" rel="noopener noreferrer" className="text-gold-radiant font-bold hover:underline inline-block">
                   +91 9985185209
                 </a>
               </div>

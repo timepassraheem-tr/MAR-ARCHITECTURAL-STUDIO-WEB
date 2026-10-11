@@ -49,32 +49,32 @@ const STAGES = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="relative w-full py-28 md:py-36 bg-transparent text-[#f8fafc] border-t border-white/10 overflow-hidden z-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+    <section id="process" className="relative w-full py-16 sm:py-24 md:py-36 bg-transparent text-[#f8fafc] border-t border-white/10 overflow-hidden z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/15 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 border-b border-white/15 gap-4 sm:gap-6">
           <div>
             <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-3 flex items-center gap-2 font-bold">
               <span className="w-2 h-2 bg-[#F5C242] shadow-[0_0_8px_#F5C242]" />
               SECTION 07 // EXECUTION PROTOCOL
             </div>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] break-words">
               PRECISION METHODOLOGY
             </h2>
           </div>
-          <div className="text-right font-mono text-xs text-[#cbd5e1] max-w-xs drop-shadow-md">
+          <div className="text-left md:text-right font-mono text-xs text-[#cbd5e1] max-w-xs drop-shadow-md">
             FIVE-PHASE TURNKEY PIPELINE<br />
             ZERO DISCONNECT FROM SKETCH TO PERMANENCE
           </div>
         </div>
 
         {/* Process Flow */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {STAGES.map((stage, idx) => (
             <div 
               key={stage.step}
-              className="rounded-sm backdrop-blur-md bg-black/20 border border-white/15 hover:border-[#F5C242]/70 hover:shadow-[0_0_15px_rgba(245,194,66,0.2)] hover:bg-black/35 p-6 md:p-8 transition-all duration-300 relative group shadow-lg"
+              className="rounded-sm backdrop-blur-md bg-black/20 border border-white/15 hover:border-[#F5C242]/70 hover:shadow-[0_0_15px_rgba(245,194,66,0.2)] hover:bg-black/35 p-4 sm:p-6 md:p-8 transition-all duration-300 relative group shadow-lg"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 

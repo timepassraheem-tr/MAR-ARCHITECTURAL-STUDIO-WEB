@@ -33,11 +33,13 @@ export default function App() {
   const lenisRef = useRef(null);
   const autoScrollRafRef = useRef(null);
 
-  // Initialize Lenis with native autoRaf for ultra super smooth 60/120fps scrolling
+  // Initialize Lenis only on desktop / non-touch devices for buttery smooth desktop scroll
+  // On mobile/touch devices, use 100% native hardware-accelerated smooth scrolling (no overhead)
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth < 768);
 
-    if (!prefersReducedMotion) {
+    if (!prefersReducedMotion && !isTouch) {
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -45,7 +47,8 @@ export default function App() {
         gestureOrientation: 'vertical',
         smoothWheel: true,
         wheelMultiplier: 1.0,
-        touchMultiplier: 1.0,
+        touchMultiplier: 0,
+        syncTouch: false,
         autoRaf: true,
         infinite: false,
       });
@@ -206,18 +209,18 @@ export default function App() {
             Starting video timeline from 8.0s (architectural planning)
             ========================================================= */}
         {activePage === 'services' && (
-          <div className="animate-fadeIn pt-20">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 pt-12 pb-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)]">
+          <div className="animate-fadeIn pt-16 sm:pt-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-12 pb-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[10px] sm:text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)] flex-wrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
                 <span>PAGE 02 // DISCIPLINARY PRACTICES & EPC</span>
-                <span className="text-white/30">•</span>
-                <span className="text-white/70">TIMELINE: 08.0s – 26.0s</span>
+                <span className="text-white/30 hidden sm:inline">•</span>
+                <span className="text-white/70 hidden sm:inline">TIMELINE: 08.0s – 26.0s</span>
               </div>
-              <h1 className="text-4xl sm:text-6xl font-display font-black tracking-tight mb-3">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-3 break-words">
                 <span className="text-white inline-block">INTEGRATED</span> <span className="text-gold-shining inline-block">PRACTICES.</span>
               </h1>
-              <p className="text-sm md:text-base text-slate-300 max-w-2xl font-light">
+              <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl font-light">
                 Direct turnkey architectural engineering: computational parametric form synthesis, nonlinear FEA civil engineering, and robotic EPC general contracting.
               </p>
             </div>
@@ -230,18 +233,18 @@ export default function App() {
             Starting video timeline from 22.0s (structural forms)
             ========================================================= */}
         {activePage === 'projects' && (
-          <div className="animate-fadeIn pt-20">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 pt-12 pb-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)]">
+          <div className="animate-fadeIn pt-16 sm:pt-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-12 pb-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[10px] sm:text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)] flex-wrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
                 <span>PAGE 03 // BUILT MONUMENTS & COMMISSIONS</span>
-                <span className="text-white/30">•</span>
-                <span className="text-white/70">TIMELINE: 22.0s – 38.0s</span>
+                <span className="text-white/30 hidden sm:inline">•</span>
+                <span className="text-white/70 hidden sm:inline">TIMELINE: 22.0s – 38.0s</span>
               </div>
-              <h1 className="text-4xl sm:text-6xl font-display font-black tracking-tight mb-3">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-3 break-words">
                 <span className="text-white inline-block">BUILT</span> <span className="text-gold-shining inline-block">MONUMENTS.</span>
               </h1>
-              <p className="text-sm md:text-base text-slate-300 max-w-2xl font-light">
+              <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl font-light">
                 Scroll to inspect our completed and ongoing civic towers, post-tensioned cantilevered monolithic villas, and turnkey urban masterplans.
               </p>
             </div>
@@ -254,18 +257,18 @@ export default function App() {
             Starting video timeline from 34.0s (engineering details)
             ========================================================= */}
         {activePage === 'about' && (
-          <div className="animate-fadeIn pt-20">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 pt-12 pb-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)]">
+          <div className="animate-fadeIn pt-16 sm:pt-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-12 pb-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[10px] sm:text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)] flex-wrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#F5C242] shadow-[0_0_8px_#F5C242] animate-ping" />
                 <span>PAGE 04 // THE ATELIER & MANIFESTO</span>
-                <span className="text-white/30">•</span>
-                <span className="text-white/70">TIMELINE: 34.0s – 48.0s</span>
+                <span className="text-white/30 hidden sm:inline">•</span>
+                <span className="text-white/70 hidden sm:inline">TIMELINE: 34.0s – 48.0s</span>
               </div>
-              <h1 className="text-4xl sm:text-6xl font-display font-black tracking-tight mb-3">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-3 break-words">
                 <span className="text-white inline-block">THE</span> <span className="text-gold-shining inline-block">STUDIO.</span>
               </h1>
-              <p className="text-sm md:text-base text-slate-300 max-w-2xl font-light">
+              <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl font-light">
                 Sculptural architecture backed by computational civil engineering. We act as master architect and primary constructor to eliminate third-party dilution.
               </p>
             </div>
@@ -279,7 +282,7 @@ export default function App() {
             Starting video timeline from 48.0s (culmination landmark)
             ========================================================= */}
         {activePage === 'contact' && (
-          <div className="animate-fadeIn pt-20">
+          <div className="animate-fadeIn pt-16 sm:pt-20">
             <ContactSection isStandalone={true} />
           </div>
         )}

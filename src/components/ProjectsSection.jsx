@@ -96,8 +96,10 @@ export default function ProjectsSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+
       gsap.to('#portfolio-title-bar', {
-        yPercent: -20,
+        yPercent: isMobile ? -5 : -20,
         ease: 'none',
         scrollTrigger: {
           trigger: projRef.current,
@@ -119,38 +121,38 @@ export default function ProjectsSection() {
     <section 
       id="projects" 
       ref={projRef}
-      className="relative w-full py-28 md:py-36 bg-transparent text-[#f8fafc] border-t border-white/10 overflow-hidden z-10"
+      className="relative w-full py-16 sm:py-24 md:py-36 bg-transparent text-[#f8fafc] border-t border-white/10 overflow-hidden z-10"
     >
       {/* Background grid */}
       <div className="absolute inset-0 blueprint-grid opacity-20 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div id="portfolio-title-bar" className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-white/10 gap-6" style={{ willChange: 'transform' }}>
+        <div id="portfolio-title-bar" className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 pb-6 border-b border-white/10 gap-4 sm:gap-6" style={{ willChange: 'transform' }}>
           <div>
             <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-3 flex items-center gap-2 font-bold">
               <span className="w-2 h-2 bg-[#F5C242] shadow-[0_0_8px_#F5C242]" />
               SECTION 04 // BUILT MONUMENTS
             </div>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold text-white tracking-tight break-words">
               PORTFOLIO ARCHIVE
             </h2>
           </div>
-          <div className="text-right font-mono text-xs text-[#94a3b8] max-w-xs">
+          <div className="text-left md:text-right font-mono text-xs text-[#94a3b8] max-w-xs">
             CIVIC • RESIDENTIAL • COMMERCIAL<br />
             GLOBAL REGISTER OF COMPLETED COMMISSION
           </div>
         </div>
 
         {/* Filter categories */}
-        <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-12">
-          <Filter className="w-4 h-4 text-[#F5C242] mr-2 hidden sm:inline-block drop-shadow-[0_0_6px_rgba(245,194,66,0.6)]" />
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-3 mb-8 sm:mb-12">
+          <Filter className="w-4 h-4 text-[#F5C242] mr-1 hidden sm:inline-block drop-shadow-[0_0_6px_rgba(245,194,66,0.6)]" />
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 text-xs font-mono tracking-wider transition-all duration-300 border cursor-pointer rounded-sm backdrop-blur-md ${
+              className={`px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-mono tracking-wider transition-all duration-300 border cursor-pointer rounded-sm backdrop-blur-md ${
                 activeCategory === cat
                   ? 'gold-shining-btn border-[#F5C242] shadow-lg shadow-[#F5C242]/30 font-bold'
                   : 'bg-black/20 text-[#cbd5e1] border-white/15 hover:border-[#F5C242]/50 hover:text-[#F5C242] hover:bg-black/35'
@@ -231,25 +233,25 @@ export default function ProjectsSection() {
       {/* Project Detail Modal */}
       {selectedProject && (
         <div 
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 md:p-8"
           onClick={() => setSelectedProject(null)}
         >
           <div 
-            className="bg-[#111317] border border-[#F5C242]/50 max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 relative shadow-2xl shadow-[#F5C242]/20"
+            className="bg-[#111317] border border-[#F5C242]/50 max-w-3xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-8 relative shadow-2xl shadow-[#F5C242]/20 rounded-sm"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 text-white/60 hover:text-white font-mono text-sm px-3 py-1 border border-white/20"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white font-mono text-xs px-2.5 py-1 border border-white/20 bg-black/70 rounded-sm cursor-pointer z-10"
             >
-              [CLOSE ✕]
+              [✕ CLOSE]
             </button>
 
-            <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-2 font-bold">
+            <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-2 font-bold pr-20">
               {selectedProject.id} // TECHNICAL BLUEPRINT DOSSIER
             </div>
 
-            <h3 className="text-2xl md:text-4xl font-serif font-bold text-white mb-2">
+            <h3 className="text-xl sm:text-3xl md:text-4xl font-serif font-bold text-white mb-2 pr-16 break-words">
               {selectedProject.title}
             </h3>
 

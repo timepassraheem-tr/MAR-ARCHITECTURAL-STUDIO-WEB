@@ -1,23 +1,29 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 export default function GlobalVideoBackground({ timeRange = [0, 60] }) {
   const videoRef = useRef(null);
-  const rafIdRef = useRef(null);
   const timeRangeRef = useRef(timeRange);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const durationRef = useRef(60);
-  const targetTimeRef = useRef(timeRange[0] || 0);
-  const isSeekingRef = useRef(false);
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768 || window.innerHeight > window.innerWidth);
+    };
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile, { passive: true });
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
-  // Sync when page changes
+  // Sync when page changes: smoothly seek to page start time and keep playing
   useEffect(() => {
     timeRangeRef.current = timeRange;
-    const start = Math.max(0, timeRange[0]);
-    targetTimeRef.current = start;
-    if (videoRef.current && videoRef.current.readyState >= 1) {
+    const video = videoRef.current;
+    if (video) {
+      const start = Math.max(0, timeRange[0] || 0);
       try {
-        videoRef.current.pause();
-        videoRef.current.currentTime = start;
+        video.currentTime = start;
+        const p = video.play();
+        if (p !== undefined) p.catch(() => {});
       } catch (e) {}
     }
   }, [timeRange]);
@@ -26,115 +32,105 @@ export default function GlobalVideoBackground({ timeRange = [0, 60] }) {
     const video = videoRef.current;
     if (!video) return;
 
+    // Strict attributes for mobile iOS/Android autoplay compatibility
+    video.defaultMuted = true;
     video.muted = true;
     video.playsInline = true;
+    video.setAttribute('playsinline', 'true');
+    video.setAttribute('webkit-playsinline', 'true');
 
-    const onLoadedMetadata = () => {
-      if (video.duration && !isNaN(video.duration)) {
-        durationRef.current = video.duration;
-      }
-      video.pause();
-      video.currentTime = timeRangeRef.current[0] || 0.001;
-    };
-
-    video.addEventListener('loadedmetadata', onLoadedMetadata);
-    if (video.readyState >= 1) onLoadedMetadata();
-
-    const onSeeked = () => {
-      isSeekingRef.current = false;
-    };
-    video.addEventListener('seeked', onSeeked);
-
-    // Ultra-Responsive 60/120fps Synchronizer
-    const updateLoop = () => {
-      if (video && video.readyState >= 2) {
-        // Direct scroll calculation on every RAF frame for 100% lockstep with Lenis!
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
-        const docHeight = document.documentElement.scrollHeight;
-        const windowH = window.innerHeight;
-        const totalScrollable = docHeight - windowH;
-
-        if (totalScrollable > 0) {
-          const progress = Math.max(0, Math.min(1, scrollY / totalScrollable));
-          const [startSec, endSec] = timeRangeRef.current || [0, durationRef.current];
-          const maxSec = durationRef.current || 60;
-          const actualStart = Math.min(startSec, maxSec);
-          const actualEnd = Math.min(endSec, maxSec);
-          const span = Math.max(0.5, actualEnd - actualStart);
-          targetTimeRef.current = actualStart + progress * span;
-        }
-
-        const target = targetTimeRef.current;
-        const current = video.currentTime;
-        const diff = target - current;
-
-        // ADAPTIVE HYBRID PLAYBACK ENGINE:
-        // When user scrolls forward (diff > 0.04s and within 2.5s catchup window):
-        // PLAY the video forward with dynamic speed matching scroll velocity!
-        // This yields continuous 60/120 FPS hardware-accelerated playback with ZERO sticking!
-        if (diff > 0.04 && diff < 2.5) {
-          const playbackSpeed = Math.min(4.0, Math.max(0.5, diff * 3.2));
-          video.playbackRate = playbackSpeed;
-          if (video.paused) {
-            const p = video.play();
-            if (p !== undefined) p.catch(() => {});
-          }
-        } 
-        // When in sync (within 40 milliseconds):
-        else if (Math.abs(diff) <= 0.04) {
-          if (!video.paused) {
-            video.pause();
-          }
-        } 
-        // When scrolling backwards (diff < -0.04) or jumping large distance (diff >= 2.5):
-        else {
-          if (!video.paused) {
-            video.pause();
-          }
-          if (!isSeekingRef.current && Math.abs(diff) > 0.06) {
-            isSeekingRef.current = true;
-            try {
-              video.currentTime = target;
-            } catch (e) {
-              isSeekingRef.current = false;
-            }
-          }
+    // Force play immediately
+    const startPlayback = () => {
+      if (video) {
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // If mobile browser requires user interaction first, bind touch/click once
+            const unlockOnInteraction = () => {
+              if (video) video.play().catch(() => {});
+              window.removeEventListener('touchstart', unlockOnInteraction);
+              window.removeEventListener('touchend', unlockOnInteraction);
+              window.removeEventListener('click', unlockOnInteraction);
+            };
+            window.addEventListener('touchstart', unlockOnInteraction, { passive: true, once: true });
+            window.addEventListener('touchend', unlockOnInteraction, { passive: true, once: true });
+            window.addEventListener('click', unlockOnInteraction, { passive: true, once: true });
+          });
         }
       }
-
-      rafIdRef.current = requestAnimationFrame(updateLoop);
     };
 
-    rafIdRef.current = requestAnimationFrame(updateLoop);
+    startPlayback();
+
+    // Time update listener: Keep within section time range or loop seamlessly
+    const handleTimeUpdate = () => {
+      const [startSec, endSec] = timeRangeRef.current || [0, 60];
+      const maxEnd = endSec || (video.duration && !isNaN(video.duration) ? video.duration : 60);
+      
+      // If reached end of section range, loop back to start of section
+      if (video.currentTime >= maxEnd || video.currentTime < (startSec - 1)) {
+        try {
+          video.currentTime = startSec;
+          video.play().catch(() => {});
+        } catch (e) {}
+      }
+    };
+
+    // If video ends, restart cleanly
+    const handleEnded = () => {
+      const startSec = timeRangeRef.current ? timeRangeRef.current[0] : 0;
+      try {
+        video.currentTime = startSec;
+        video.play().catch(() => {});
+      } catch (e) {}
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('ended', handleEnded);
 
     return () => {
-      video.removeEventListener('loadedmetadata', onLoadedMetadata);
-      video.removeEventListener('seeked', onSeeked);
-      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('ended', handleEnded);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div 
-      className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden"
+      className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-black"
       style={{ transform: 'translateZ(0)', willChange: 'transform' }}
     >
       <video
+        key={isMobile ? 'vertical-mobile' : 'desktop-view'}
         ref={videoRef}
         className="w-full h-full object-cover select-none pointer-events-none"
-        preload="auto"
+        autoPlay
+        loop
         muted
         playsInline
+        preload="auto"
         controls={false}
         style={{ 
-          objectPosition: 'center bottom',
+          objectPosition: 'center center',
           imageRendering: '-webkit-optimize-contrast',
-          filter: 'contrast(106%) brightness(102%) saturate(106%)'
+          filter: 'contrast(106%) brightness(95%) saturate(108%)'
         }}
       >
-        <source src="/MAR_CONS_VIDEO.mp4" type="video/mp4" />
-        <source src="/MAR CONS VIDEO.mp4" type="video/mp4" />
+        {isMobile ? (
+          <>
+            <source src="/MAR_VIDEO_MOBILE_VERTICAL.mp4" type="video/mp4" />
+            <source src="/MAR_VIDEO_DESKTOP.mp4" type="video/mp4" />
+          </>
+        ) : (
+          <>
+            <source src="/MAR_VIDEO_DESKTOP.mp4" type="video/mp4" />
+            <source src="/MAR_CONS_VIDEO.mp4" type="video/mp4" />
+          </>
+        )}
       </video>
+
+      {/* Subtle cinematic gradient overlay to ensure perfect readability on mobile & desktop */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
     </div>
   );
 }

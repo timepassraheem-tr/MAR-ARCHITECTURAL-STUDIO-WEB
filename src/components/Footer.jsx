@@ -10,22 +10,22 @@ export default function Footer({ onNavigate = () => {} }) {
   };
 
   return (
-    <footer className="relative w-full bg-black/50 backdrop-blur-md text-[#94a3b8] border-t border-white/10 pt-16 pb-24 font-sans text-xs z-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <footer className="relative w-full bg-black/50 backdrop-blur-md text-[#94a3b8] border-t border-white/10 pt-12 sm:pt-16 pb-20 sm:pb-24 font-sans text-xs z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Top footer row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 pb-12 border-b border-white/10 items-start">
           
           {/* Brand info with exact matching header logo, title, and white color */}
           <div className="md:col-span-5 space-y-4">
             <button 
               onClick={() => onNavigate('home')} 
-              className="flex items-center gap-3.5 text-left cursor-pointer group"
+              className="flex items-center gap-3 text-left cursor-pointer group"
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 max-w-[56px] max-h-[56px] flex items-center justify-center shrink-0 overflow-hidden">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 max-w-[56px] max-h-[56px] flex items-center justify-center shrink-0 overflow-hidden">
                 <img src="/logo.png" alt="MAR Architectural Studio Logo" className="w-full h-full max-w-full max-h-full object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]" />
               </div>
-              <span className="text-lg md:text-xl font-sans font-extrabold tracking-tight text-white whitespace-nowrap drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] group-hover:text-[#F5C242] transition-colors">
+              <span className="text-base sm:text-lg md:text-xl font-sans font-extrabold tracking-tight text-white whitespace-nowrap drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] group-hover:text-[#F5C242] transition-colors">
                 MAR Architectural Studio
               </span>
             </button>

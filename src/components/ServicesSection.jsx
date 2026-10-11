@@ -106,8 +106,10 @@ export default function ServicesSection({ onNavigate = () => {} }) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+
       gsap.to('#services-header-text', {
-        yPercent: -20,
+        yPercent: isMobile ? -5 : -20,
         ease: 'none',
         scrollTrigger: {
           trigger: srvRef.current,
@@ -125,22 +127,22 @@ export default function ServicesSection({ onNavigate = () => {} }) {
     <section 
       id="services" 
       ref={srvRef}
-      className="relative w-full py-28 md:py-36 bg-transparent text-[#f8fafc] border-t border-white/10 overflow-hidden z-10"
+      className="relative w-full py-16 sm:py-24 md:py-36 bg-transparent text-[#f8fafc] border-t border-white/10 overflow-hidden z-10"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         
         {/* Section Heading */}
-        <div id="services-header-text" className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/15 gap-6" style={{ willChange: 'transform' }}>
+        <div id="services-header-text" className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 border-b border-white/15 gap-4 sm:gap-6" style={{ willChange: 'transform' }}>
           <div>
             <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-3 flex items-center gap-2 font-bold">
               <span className="w-2 h-2 bg-[#F5C242] shadow-[0_0_8px_#F5C242]" />
               DISCIPLINARY ARCHITECTURAL CAPABILITIES
             </div>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] break-words">
               COMPREHENSIVE SERVICES
             </h2>
           </div>
-          <div className="text-right font-mono text-xs text-[#cbd5e1] max-w-xs drop-shadow-md">
+          <div className="text-left md:text-right font-mono text-xs text-[#cbd5e1] max-w-xs drop-shadow-md">
             INTEGRATED DESIGN-BUILD MODEL<br />
             ZERO DISCONNECT BETWEEN ARCHITECT AND ENGINEER
           </div>
