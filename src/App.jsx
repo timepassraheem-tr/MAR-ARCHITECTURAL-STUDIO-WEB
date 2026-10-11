@@ -54,18 +54,27 @@ export default function App() {
     }
   }, []);
 
-  // Sync hash routing on initial load and back/forward navigation
+  // On reload / fresh session, always start cleanly on the Home page
   useEffect(() => {
-    const syncHash = () => {
+    // If the page was refreshed or loaded with a hash, reset it to home
+    if (window.location.hash && window.location.hash !== '#home') {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+    setActivePage('home');
+    scrollToTopImmediate();
+
+    // Listen to hash changes during active session (e.g., browser back/forward buttons)
+    const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
       if (['home', 'services', 'projects', 'blog', 'about', 'contact'].includes(hash)) {
         setActivePage(hash);
+      } else {
+        setActivePage('home');
       }
     };
 
-    syncHash();
-    window.addEventListener('hashchange', syncHash);
-    return () => window.removeEventListener('hashchange', syncHash);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   // Cinematic Auto-Scroll Engine across all pages (seamlessly driven via Lenis)
