@@ -128,30 +128,52 @@ export default function App() {
     };
   }, [isAutoScrolling]);
 
+  const scrollToTopImmediate = () => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   const toggleAutoScroll = () => {
     setIsAutoScrolling(prev => !prev);
   };
 
   const handleNavigate = (pageId) => {
+    setIsAutoScrolling(false);
+
     if (pageId === activePage) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollToTopImmediate();
       return;
     }
 
-    setIsAutoScrolling(false);
     setIsTransitioning(true);
 
     setTimeout(() => {
       setActivePage(pageId);
-      window.location.hash = pageId;
-      window.scrollTo(0, 0);
-      ScrollTrigger.refresh();
+      window.history.pushState(null, '', `#${pageId}`);
+      scrollToTopImmediate();
 
       setTimeout(() => {
+        scrollToTopImmediate();
+        ScrollTrigger.refresh();
         setIsTransitioning(false);
       }, 50);
-    }, 200);
+    }, 150);
   };
+
+  // Scroll to absolute top whenever activePage changes
+  useEffect(() => {
+    scrollToTopImmediate();
+    const t1 = setTimeout(scrollToTopImmediate, 50);
+    const t2 = setTimeout(scrollToTopImmediate, 200);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [activePage]);
 
   return (
     <div className="relative min-h-screen bg-[#0f1115] text-[#f8fafc] overflow-x-hidden selection:bg-[#F5C242]/40 selection:text-white">
