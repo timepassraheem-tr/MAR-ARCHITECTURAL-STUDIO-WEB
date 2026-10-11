@@ -153,7 +153,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white text-slate-900 overflow-x-hidden selection:bg-[#F5C242]/40 selection:text-black">
+    <div className="relative min-h-screen bg-[#0f1115] text-[#f8fafc] overflow-x-hidden selection:bg-[#F5C242]/40 selection:text-white">
       
       {/* Global Fixed Navigation */}
       <Navbar 
@@ -173,16 +173,16 @@ export default function App() {
       >
         {/* =========================================================
             PAGE 1: HOME PAGE
-            Video strictly in Hero section (0s - 18s).
-            All remaining sections have white background!
+            Hero video looping (0s - 18s).
+            All remaining sections on luxury matte black background!
             ========================================================= */}
         {activePage === 'home' && (
           <div className="animate-fadeIn">
             {/* HERO WITH VIDEO ONLY */}
             <HeroSection onNavigate={handleNavigate} />
 
-            {/* REMAINING HOME PAGE: CRISP CLEAN WHITE BACKGROUND */}
-            <div className="bg-white text-slate-900">
+            {/* REMAINING HOME PAGE: LUXURY MATTE BLACK BACKGROUND */}
+            <div className="bg-[#0f1115] text-[#f8fafc]">
               <AboutSection />
               <ServicesSection onNavigate={handleNavigate} />
               <ProjectsSection />
@@ -196,33 +196,33 @@ export default function App() {
 
         {/* =========================================================
             PAGE 2: SERVICES PAGE
-            Hero section with looping video from 8.0s - 24.0s.
-            Remaining page with white background.
+            Hero section with looping video from 8.0s - 24.0s (broader to down).
+            Remaining page with matte black background.
             ========================================================= */}
         {activePage === 'services' && (
           <div className="animate-fadeIn">
             {/* SERVICES HERO WITH DEDICATED LOOPING VIDEO (8s - 24s) */}
-            <section className="relative min-h-[65vh] sm:min-h-[75vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-28 sm:pt-36 pb-16 overflow-hidden">
+            <section className="relative min-h-[82vh] sm:min-h-[90vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-32 sm:pt-40 pb-20 overflow-hidden">
               <HeroVideoBackground startTime={8} endTime={24} />
               
               <div className="relative z-10 max-w-5xl mx-auto w-full">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-5 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-white animate-ping" />
-                  <span>PAGE 02 // DISCIPLINARY PRACTICES & EPC</span>
+                  <span>DISCIPLINARY PRACTICES // EPC EXECUTION</span>
                   <span className="text-white/40 hidden sm:inline">•</span>
                   <span className="text-white/90 hidden sm:inline">ALGORITHMIC PLANNING & STRUCTURAL FORMS</span>
                 </div>
-                <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight mb-4 text-white leading-[1.05]">
+                <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-display font-black tracking-tight mb-5 text-white leading-[1.05]">
                   INTEGRATED <span className="text-gold-shining">PRACTICES.</span>
                 </h1>
-                <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
-                  Direct turnkey architectural engineering: computational parametric form synthesis, nonlinear FEA civil engineering, and robotic EPC general contracting.
+                <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl font-light leading-relaxed">
+                  Turnkey architectural engineering: computational form synthesis, nonlinear FEA civil engineering, and robotic EPC general contracting.
                 </p>
               </div>
             </section>
 
-            {/* REMAINING SERVICES BODY: CLEAN WHITE BACKGROUND */}
-            <div className="bg-white text-slate-900">
+            {/* REMAINING SERVICES BODY: MATTE BLACK BACKGROUND */}
+            <div className="bg-[#0f1115] text-[#f8fafc]">
               <ServicesSection onNavigate={handleNavigate} />
             </div>
           </div>
@@ -230,79 +230,77 @@ export default function App() {
 
         {/* =========================================================
             PAGE 3: PROJECTS PAGE
-            Hero section with looping video from 22.0s - 38.0s.
-            Remaining page with white background.
+            Hero section with looping video from 22.0s - 38.0s (broader to down).
+            Remaining page with matte black background.
             ========================================================= */}
         {activePage === 'projects' && (
           <div className="animate-fadeIn">
             {/* PROJECTS HERO WITH DEDICATED LOOPING VIDEO (22s - 38s) */}
-            <section className="relative min-h-[65vh] sm:min-h-[75vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-28 sm:pt-36 pb-16 overflow-hidden">
+            <section className="relative min-h-[82vh] sm:min-h-[90vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-32 sm:pt-40 pb-20 overflow-hidden">
               <HeroVideoBackground startTime={22} endTime={38} />
               
               <div className="relative z-10 max-w-5xl mx-auto w-full">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-5 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-white animate-ping" />
-                  <span>PAGE 03 // BUILT MONUMENTS & COMMISSIONS</span>
+                  <span>BUILT MONUMENTS // PORTFOLIO COMMISSIONS</span>
                   <span className="text-white/40 hidden sm:inline">•</span>
-                  <span className="text-white/90 hidden sm:inline">CIVIC TOWERS & HIGH-RISE ARCHITECTURE</span>
+                  <span className="text-white/90 hidden sm:inline">CIVIC TOWERS & HIGH-RISE LANDMARKS</span>
                 </div>
-                <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight mb-4 text-white leading-[1.05]">
+                <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-display font-black tracking-tight mb-5 text-white leading-[1.05]">
                   BUILT <span className="text-gold-shining">MONUMENTS.</span>
                 </h1>
-                <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl font-light leading-relaxed">
                   Completed and ongoing civic towers, post-tensioned cantilevered monolithic villas, and turnkey urban masterplans engineered to stand for centuries.
                 </p>
               </div>
             </section>
 
-            {/* REMAINING PROJECTS BODY: CLEAN WHITE BACKGROUND */}
-            <div className="bg-white text-slate-900">
+            {/* REMAINING PROJECTS BODY: MATTE BLACK BACKGROUND */}
+            <div className="bg-[#0f1115] text-[#f8fafc]">
               <ProjectsSection />
             </div>
           </div>
         )}
 
         {/* =========================================================
-            PAGE 4: BLOG & RESEARCH PAGE (SEO, AEO, and GEO)
+            PAGE 4: BLOG PAGE
             Directly after Projects page!
-            Hero section with dedicated video (18s - 34s).
-            Remaining page with white background & footer.
             ========================================================= */}
         {activePage === 'blog' && (
           <div className="animate-fadeIn">
-            <BlogSection onNavigate={handleNavigate} />
+            <BlogSection />
           </div>
         )}
 
         {/* =========================================================
             PAGE 5: ABOUT PAGE
-            Hero section with looping video from 34.0s - 48.0s.
-            Remaining page with white background.
+            Hero section with looping video from 34.0s - 48.0s (broader to down).
+            Remaining page with matte black background.
             ========================================================= */}
         {activePage === 'about' && (
           <div className="animate-fadeIn">
             {/* ABOUT HERO WITH DEDICATED LOOPING VIDEO (34s - 48s) */}
-            <section className="relative min-h-[65vh] sm:min-h-[75vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-28 sm:pt-36 pb-16 overflow-hidden">
+            <section className="relative min-h-[82vh] sm:min-h-[90vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-32 sm:pt-40 pb-20 overflow-hidden">
               <HeroVideoBackground startTime={34} endTime={48} />
               
               <div className="relative z-10 max-w-5xl mx-auto w-full">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-5 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-[#F5C242] shadow-[0_0_8px_#F5C242] animate-ping" />
-                  <span>PAGE 05 // THE ATELIER & MANIFESTO</span>
+                  <span>THE ATELIER // DESIGN PHILOSOPHY & PIPELINE</span>
                   <span className="text-white/40 hidden sm:inline">•</span>
-                  <span className="text-white/90 hidden sm:inline">STRUCTURAL PHILOSOPHY & PIPELINE</span>
+                  <span className="text-white/90 hidden sm:inline">STRUCTURAL RIGOR & MATERIAL INTEGRITY</span>
                 </div>
-                <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight mb-4 text-white leading-[1.05]">
+                <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-display font-black tracking-tight mb-5 text-white leading-[1.05]">
                   THE <span className="text-gold-shining">STUDIO.</span>
                 </h1>
-                <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl font-light leading-relaxed">
                   Sculptural architecture backed by computational civil engineering. We act as master architect and primary constructor to eliminate third-party dilution.
                 </p>
               </div>
             </section>
 
-            {/* REMAINING ABOUT BODY: CLEAN WHITE BACKGROUND */}
-            <div className="bg-white text-slate-900">
+            {/* REMAINING ABOUT BODY: MATTE BLACK BACKGROUND */}
+            <div className="bg-[#0f1115] text-[#f8fafc]">
               <AboutSection />
               <ProcessSection />
             </div>
@@ -311,33 +309,33 @@ export default function App() {
 
         {/* =========================================================
             PAGE 6: CONTACT US PAGE
-            Hero section with looping video from 48.0s - 60.0s.
-            Remaining page with white background.
+            Hero section with looping video from 48.0s - 60.0s (broader to down).
+            Remaining page with matte black background.
             ========================================================= */}
         {activePage === 'contact' && (
           <div className="animate-fadeIn">
             {/* CONTACT HERO WITH DEDICATED LOOPING VIDEO (48s - 60s) */}
-            <section className="relative min-h-[55vh] sm:min-h-[65vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-28 sm:pt-36 pb-12 overflow-hidden">
+            <section className="relative min-h-[75vh] sm:min-h-[85vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-32 sm:pt-40 pb-16 overflow-hidden">
               <HeroVideoBackground startTime={48} endTime={60} />
               
               <div className="relative z-10 max-w-5xl mx-auto w-full">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-5 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-[#F5C242] shadow-[0_0_8px_#F5C242] animate-ping" />
-                  <span>PAGE 06 // GLOBAL ATELIERS & INQUIRY</span>
+                  <span>GLOBAL ATELIERS // DIRECT ENGAGEMENT</span>
                   <span className="text-white/40 hidden sm:inline">•</span>
-                  <span className="text-white/90 hidden sm:inline">DIRECT PRINCIPAL ENGAGEMENT</span>
+                  <span className="text-white/90 hidden sm:inline">PRINCIPAL INTAKE & FEASIBILITY</span>
                 </div>
-                <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight mb-4 text-white leading-[1.05]">
+                <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-display font-black tracking-tight mb-5 text-white leading-[1.05]">
                   COMMISSION A <span className="text-gold-shining">LANDMARK.</span>
                 </h1>
-                <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl font-light leading-relaxed">
                   Connect with Mohammed Abdul Rahman and our principal architectural civil engineering leads in New York, Zurich, London, and Dubai.
                 </p>
               </div>
             </section>
 
-            {/* REMAINING CONTACT BODY: CLEAN WHITE BACKGROUND */}
-            <div className="bg-white text-slate-900">
+            {/* REMAINING CONTACT BODY: MATTE BLACK BACKGROUND */}
+            <div className="bg-[#0f1115] text-[#f8fafc]">
               <ContactSection isStandalone={true} />
             </div>
           </div>

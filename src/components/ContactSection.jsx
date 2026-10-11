@@ -211,8 +211,8 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Inquiry Form - Solid Black Background with strict h-fit */}
-          <div className="lg:col-span-7 rounded-sm bg-black border border-white/20 p-4 sm:p-6 md:p-8 relative shadow-2xl h-fit">
+          {/* Inquiry Form - Solid Matte Black Background with strict h-fit */}
+          <div className="lg:col-span-7 rounded-sm bg-[#14171f] border border-white/20 p-4 sm:p-6 md:p-8 relative shadow-2xl h-fit font-sans">
             <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-white/10">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 min-w-[32px] max-w-[32px] min-h-[32px] max-h-[32px] rounded-full border border-[#F5C242]/50 bg-black/80 p-0.5 flex items-center justify-center shrink-0 overflow-hidden">
@@ -222,7 +222,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                   <div className="text-xs font-sans text-gold-radiant tracking-widest uppercase font-bold">
                     PROJECT INTAKE DOSSIER
                   </div>
-                  <div className="text-[10px] font-mono text-slate-300">
+                  <div className="text-[10px] font-sans text-slate-300">
                     OFFICIAL GMAIL: mararchitecturalstudio@gmail.com
                   </div>
                 </div>
@@ -230,7 +230,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="text-[10px] font-mono px-2.5 py-1 bg-white/5 border border-white/20 text-slate-300 hover:text-white hover:border-white rounded-sm flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="text-[10px] font-sans px-2.5 py-1 bg-white/5 border border-white/20 text-slate-300 hover:text-white hover:border-white rounded-sm flex items-center gap-1.5 transition-colors cursor-pointer"
               >
                 {copiedEmail ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-[#F5C242]" />}
                 <span>{copiedEmail ? 'COPIED GMAIL!' : 'COPY GMAIL'}</span>
@@ -241,10 +241,10 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
               <div className="py-10 text-center space-y-6">
                 <CheckCircle2 className="w-16 h-16 text-[#22c55e] mx-auto animate-bounce filter drop-shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
                 <div className="space-y-2">
-                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-white">
                     DOSSIER COMPILED & FORWARDED
                   </h3>
-                  <p className="text-xs font-mono text-[#cbd5e1] max-w-lg mx-auto leading-relaxed">
+                  <p className="text-xs font-sans text-[#cbd5e1] max-w-lg mx-auto leading-relaxed">
                     Your project brief has been formatted for Owner <strong className="text-white">Mohammed Abdul Rahman</strong> and routed to WhatsApp <strong className="text-white font-bold">+91 9985185209</strong> and Gmail <strong className="text-gold-radiant font-bold">mararchitecturalstudio@gmail.com</strong>.
                   </p>
                 </div>
@@ -265,7 +265,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
 
                   <a
                     href={emailLink}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white text-black font-extrabold text-xs tracking-wider uppercase rounded-sm shadow-xl transition-all transform hover:scale-[1.02]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white text-black font-sans font-extrabold text-xs tracking-wider uppercase rounded-sm shadow-xl transition-all transform hover:scale-[1.02]"
                   >
                     <Mail className="w-4 h-4" />
                     <span>OPEN EMAIL CLIENT</span>
@@ -273,7 +273,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
 
                   <button
                     onClick={handleCopyEmail}
-                    className="w-full sm:w-auto px-4 py-3.5 bg-black/60 border border-white/25 hover:border-[#F5C242] text-xs font-mono text-white rounded-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full sm:w-auto px-4 py-3.5 bg-black/60 border border-white/25 hover:border-[#F5C242] text-xs font-sans text-white rounded-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-[#F5C242]" />}
                     <span>{copiedEmail ? 'COPIED GMAIL!' : 'COPY GMAIL'}</span>
@@ -281,7 +281,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                 </div>
 
                 {/* Message preview snippet */}
-                <div className="bg-white/5 border border-white/10 p-4 rounded-sm text-left max-w-lg mx-auto font-mono text-[11px] text-slate-300 space-y-1">
+                <div className="bg-white/5 border border-white/10 p-4 rounded-sm text-left max-w-lg mx-auto font-sans text-[11px] text-slate-300 space-y-1">
                   <div className="text-[#F5C242] font-bold pb-1 border-b border-white/10 mb-2 flex items-center justify-between">
                     <span>TRANSMITTED DOSSIER PREVIEW:</span>
                     <span className="text-[10px] text-white">ROUTED TO GMAIL & WA</span>
@@ -302,7 +302,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
 
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-4 px-6 py-2 border border-white/20 text-xs font-mono text-white hover:border-[#F5C242] hover:text-[#F5C242] transition-colors cursor-pointer"
+                  className="mt-4 px-6 py-2 border border-white/20 text-xs font-sans text-white hover:border-[#F5C242] hover:text-[#F5C242] transition-colors cursor-pointer"
                 >
                   TRANSMIT ANOTHER INQUIRY
                 </button>
@@ -311,7 +311,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                    <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                       PRINCIPAL NAME *
                     </label>
                     <input
@@ -320,11 +320,11 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="e.g. Sir Julian Vance"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-[#0a0c10] border border-white/20 px-3.5 py-3 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                    <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                       ORGANIZATION / ENTITY
                     </label>
                     <input
@@ -332,14 +332,14 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="e.g. Vance Holdings AG"
                       value={formData.organization}
                       onChange={(e) => setFormData({...formData, organization: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-[#0a0c10] border border-white/20 px-3.5 py-3 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                    <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                       DIRECT EMAIL *
                     </label>
                     <input
@@ -348,11 +348,11 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="julian@vance-invest.com"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-[#0a0c10] border border-white/20 px-3.5 py-3 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                    <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                       PHONE NUMBER *
                     </label>
                     <input
@@ -361,7 +361,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="e.g. +91 9985185209"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-[#0a0c10] border border-white/20 px-3.5 py-3 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                 </div>
@@ -369,7 +369,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                 {/* TARGET SITE LOCATION & CUSTOM PROJECT TYPOLOGY WRITE-IN */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                    <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                       TARGET SITE LOCATION
                     </label>
                     <input
@@ -377,11 +377,11 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="City, Coordinates or Region (Optional)"
                       value={formData.location}
                       onChange={(e) => setFormData({...formData, location: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-[#0a0c10] border border-white/20 px-3.5 py-3 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                    <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                       PROJECT TYPOLOGY (WRITE OR CHOOSE)
                     </label>
                     <input
@@ -389,7 +389,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                       placeholder="e.g. Ultra-Luxury Villa, Skyscraper, Resort..."
                       value={formData.typology}
                       onChange={(e) => setFormData({...formData, typology: e.target.value})}
-                      className="w-full bg-black/30 border border-white/15 px-3.5 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                      className="w-full bg-[#0a0c10] border border-white/20 px-3.5 py-3 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                     />
                   </div>
                 </div>
@@ -422,16 +422,16 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end">
                     {/* Currency Selector */}
                     <div className={formData.currency === 'OTHER' ? 'sm:col-span-3' : 'sm:col-span-5'}>
-                      <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                      <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                         CURRENCY TYPE
                       </label>
                       <select
                         value={formData.currency}
                         onChange={(e) => setFormData({...formData, currency: e.target.value})}
-                        className="w-full bg-black/30 border border-white/15 px-3 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm cursor-pointer"
+                        className="w-full bg-[#0a0c10] border border-white/20 px-3 py-3 text-sm font-sans text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm cursor-pointer"
                       >
                         {CURRENCY_OPTIONS.map((c) => (
-                          <option key={c.code} value={c.code} className="bg-[#12161f] text-white">
+                          <option key={c.code} value={c.code} className="bg-[#14171f] text-white">
                             {c.label}
                           </option>
                         ))}
@@ -441,7 +441,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                     {/* Custom Currency Write-in (if OTHER chosen) */}
                     {formData.currency === 'OTHER' && (
                       <div className="sm:col-span-3">
-                        <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                        <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                           CUSTOM CURRENCY
                         </label>
                         <input
@@ -449,14 +449,14 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                           placeholder="e.g. KWD, QAR, JPY"
                           value={formData.customCurrency}
                           onChange={(e) => setFormData({...formData, customCurrency: e.target.value})}
-                          className="w-full bg-black/30 border border-white/15 px-3 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                          className="w-full bg-[#0a0c10] border border-white/20 px-3 py-3 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                         />
                       </div>
                     )}
 
                     {/* Budget Amount Custom Write-in */}
                     <div className={formData.currency === 'OTHER' ? 'sm:col-span-6' : 'sm:col-span-7'}>
-                      <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                      <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                         BUDGET AMOUNT (ENTER OR CHOOSE)
                       </label>
                       <input
@@ -464,14 +464,14 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                         placeholder="e.g. 50,000,000 or 25 Crores or 100M+ (Optional)"
                         value={formData.budgetAmount}
                         onChange={(e) => setFormData({...formData, budgetAmount: e.target.value})}
-                        className="w-full bg-black/30 border border-white/15 px-4 py-3 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                        className="w-full bg-[#0a0c10] border border-white/20 px-4 py-3 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                       />
                     </div>
                   </div>
 
                   {/* BUDGET AMOUNT EXAMPLES */}
                   <div className="space-y-1.5">
-                    <div className="text-[10px] font-mono text-slate-400">
+                    <div className="text-[10px] font-sans text-slate-400">
                       <span className="text-white font-bold">BUDGET EXAMPLES (Click to auto-fill):</span>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
@@ -480,7 +480,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                           key={idx}
                           type="button"
                           onClick={() => setFormData(prev => ({ ...prev, budgetAmount: bEx }))}
-                          className={`px-2 py-1 text-[10px] font-mono rounded-sm border transition-all cursor-pointer ${
+                          className={`px-2.5 py-1 text-[11px] font-sans rounded-sm border transition-all cursor-pointer ${
                             formData.budgetAmount === bEx
                               ? 'bg-white text-black border-white font-bold shadow-sm'
                               : 'bg-white/5 border-white/15 text-slate-300 hover:border-white hover:text-white'
@@ -494,7 +494,7 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-mono text-[#cbd5e1] uppercase mb-1.5 font-semibold">
+                  <label className="block text-[11px] font-sans text-[#cbd5e1] uppercase mb-1.5 font-semibold">
                     PROJECT VISION & STRUCTURAL AMBITIONS
                   </label>
                   <textarea
@@ -502,19 +502,19 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
                     placeholder="Outline spatial requirements, geotechnical context, site constraints, and completion horizon..."
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full bg-black/30 border border-white/15 p-3.5 sm:p-4 text-base sm:text-xs font-mono text-white focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
+                    className="w-full bg-[#0a0c10] border border-white/20 p-3.5 sm:p-4 text-sm font-sans text-white placeholder-slate-500 focus:outline-none focus:border-[#F5C242] focus:shadow-[0_0_12px_rgba(245,194,66,0.3)] rounded-sm"
                   />
                 </div>
 
                 <div className="space-y-3">
                   <button
                     type="submit"
-                    className="gold-shining-btn w-full py-4 text-xs tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xl shadow-[#F5C242]/30 rounded-sm"
+                    className="gold-shining-btn w-full py-4 text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xl shadow-[#F5C242]/30 rounded-sm"
                   >
                     <Send className="w-4 h-4" />
                     <span>TRANSMIT BRIEF & SEND TO WHATSAPP</span>
                   </button>
-                  <p className="text-[11px] font-mono text-slate-400 text-center">
+                  <p className="text-[11px] font-sans text-slate-400 text-center">
                     Submissions are directly forwarded to Owner Mohammed Abdul Rahman at +91 9985185209
                   </p>
                 </div>

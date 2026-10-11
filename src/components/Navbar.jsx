@@ -40,7 +40,7 @@ export default function Navbar({
     { id: "home", label: "HOME" },
     { id: "services", label: "SERVICES" },
     { id: "projects", label: "PROJECTS" },
-    { id: "blog", label: "BLOG & RESEARCH" },
+    { id: "blog", label: "BLOG" },
     { id: "about", label: "ABOUT" },
     { id: "contact", label: "CONTACT US" },
   ];

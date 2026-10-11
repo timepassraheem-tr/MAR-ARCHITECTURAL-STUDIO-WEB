@@ -43,7 +43,7 @@ export default function HeroSection({ onNavigate = () => {} }) {
     <section 
       id="hero" 
       ref={heroRef}
-      className="relative min-h-screen w-full flex flex-col justify-center px-4 sm:px-8 md:px-14 z-10 pt-24 sm:pt-28 md:pt-32 pb-12 overflow-hidden"
+      className="relative min-h-[92vh] sm:min-h-screen w-full flex flex-col justify-center px-4 sm:px-8 md:px-14 z-10 pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-28 overflow-hidden"
     >
       {/* Dedicated Hero Looping Video Background (Scene: 0s to 18s) */}
       <HeroVideoBackground startTime={0} endTime={18} />
@@ -58,14 +58,14 @@ export default function HeroSection({ onNavigate = () => {} }) {
             alt="MAR Architectural Studio Emblem" 
             className="w-10 h-10 sm:w-14 sm:h-14 max-w-[56px] max-h-[56px] object-contain drop-shadow-[0_0_20px_rgba(245,194,66,0.45)] hover:scale-105 transition-transform duration-300"
           />
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
             <span className="w-2 h-2 rounded-full bg-[#F5C242] shadow-[0_0_8px_#F5C242] animate-ping shrink-0" />
             <span className="text-gold-radiant text-[10px] sm:text-xs font-sans uppercase tracking-widest font-bold">
-              MASTER ARCHITECTURAL TIMELINE
+              PERMANENT CIVIC & LUXURY LANDMARKS
             </span>
             <span className="text-white/30 hidden sm:inline">•</span>
             <span className="text-[10px] sm:text-xs font-sans text-white/90 hidden sm:inline">
-              60-SECOND COMPLETE SCROLL JOURNEY
+              ARCHITECTURAL ENGINEERING & GENERAL CONTRACTING
             </span>
           </div>
         </div>
@@ -77,10 +77,10 @@ export default function HeroSection({ onNavigate = () => {} }) {
         </h1>
 
         {/* Subtitle with soft blur capsule in Normal White and Shining Gold accent */}
-        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6 px-3 sm:px-3.5 py-1.5 rounded-sm backdrop-blur-md bg-black/35 border border-white/10 max-w-full">
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6 px-3 sm:px-3.5 py-1.5 rounded-sm backdrop-blur-md bg-black/40 border border-white/10 max-w-full">
           <div className="w-6 sm:w-8 h-0.5 bg-[#F5C242] shadow-[0_0_10px_#F5C242] shrink-0" />
           <p className="text-[10px] sm:text-xs md:text-sm font-sans tracking-wider text-white uppercase font-bold leading-relaxed">
-            STRUCTURAL CIVIL ENGINEERING • COMPUTATIONAL FORM • TURNKEY ERECTION
+            COMPUTATIONAL FORM • STRUCTURAL CIVIL RIGOR • TURNKEY ERECTION
           </p>
         </div>
 
