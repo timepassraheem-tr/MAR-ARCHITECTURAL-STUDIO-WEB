@@ -301,7 +301,7 @@ export default function App() {
             ========================================================= */}
         {activePage === 'blog' && (
           <div className="animate-fadeIn">
-            <BlogSection />
+            <BlogSection onNavigate={handleNavigate} />
           </div>
         )}
 
