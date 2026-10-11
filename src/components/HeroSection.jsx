@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import HeroVideoBackground from './HeroVideoBackground';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection({ onNavigate = () => {} }) {
@@ -41,10 +43,13 @@ export default function HeroSection({ onNavigate = () => {} }) {
     <section 
       id="hero" 
       ref={heroRef}
-      className="relative min-h-screen w-full flex flex-col justify-center px-4 sm:px-8 md:px-14 z-10 pt-24 sm:pt-28 md:pt-32 pb-12 pointer-events-none"
+      className="relative min-h-screen w-full flex flex-col justify-center px-4 sm:px-8 md:px-14 z-10 pt-24 sm:pt-28 md:pt-32 pb-12 overflow-hidden"
     >
+      {/* Dedicated Hero Looping Video Background (Scene: 0s to 18s) */}
+      <HeroVideoBackground startTime={0} endTime={18} />
+
       {/* Main Center Monumental Heading with subtle text-blur backing */}
-      <div id="hero-main-content" className="my-auto max-w-4xl pointer-events-auto" style={{ willChange: 'transform' }}>
+      <div id="hero-main-content" className="my-auto max-w-4xl relative z-10 pointer-events-auto" style={{ willChange: 'transform' }}>
         
         {/* Brand Logo & Master Timeline Pill */}
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4 sm:mb-5">

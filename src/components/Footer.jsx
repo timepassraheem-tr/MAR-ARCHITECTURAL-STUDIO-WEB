@@ -10,7 +10,7 @@ export default function Footer({ onNavigate = () => {} }) {
   };
 
   return (
-    <footer className="relative w-full bg-black/50 backdrop-blur-md text-[#94a3b8] border-t border-white/10 pt-12 sm:pt-16 pb-20 sm:pb-24 font-sans text-xs z-10">
+    <footer className="relative w-full bg-[#08090b] text-[#94a3b8] border-t border-slate-200/20 pt-16 pb-20 sm:pb-24 font-sans text-xs z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Top footer row */}
@@ -45,8 +45,9 @@ export default function Footer({ onNavigate = () => {} }) {
               <li><button onClick={() => onNavigate('home')} className="hover:text-[#F5C242] transition-colors cursor-pointer text-left">01 // Home</button></li>
               <li><button onClick={() => onNavigate('services')} className="hover:text-[#F5C242] transition-colors cursor-pointer text-left">02 // Services</button></li>
               <li><button onClick={() => onNavigate('projects')} className="hover:text-[#F5C242] transition-colors cursor-pointer text-left">03 // Projects</button></li>
-              <li><button onClick={() => onNavigate('about')} className="hover:text-[#F5C242] transition-colors cursor-pointer text-left">04 // About</button></li>
-              <li><button onClick={() => onNavigate('contact')} className="hover:text-[#F5C242] transition-colors cursor-pointer text-left">05 // Contact Us</button></li>
+              <li><button onClick={() => onNavigate('blog')} className="hover:text-[#F5C242] transition-colors cursor-pointer text-left">04 // Blog & Research</button></li>
+              <li><button onClick={() => onNavigate('about')} className="hover:text-[#F5C242] transition-colors cursor-pointer text-left">05 // About</button></li>
+              <li><button onClick={() => onNavigate('contact')} className="hover:text-[#F5C242] transition-colors cursor-pointer text-left">06 // Contact Us</button></li>
             </ul>
           </div>
 

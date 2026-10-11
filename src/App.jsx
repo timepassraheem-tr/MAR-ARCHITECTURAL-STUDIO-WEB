@@ -4,11 +4,12 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Navbar from './components/Navbar';
-import GlobalVideoBackground from './components/GlobalVideoBackground';
+import HeroVideoBackground from './components/HeroVideoBackground';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import ProjectsSection from './components/ProjectsSection';
+import BlogSection from './components/BlogSection';
 import EngineeringShowcase from './components/EngineeringShowcase';
 import ProcessSection from './components/ProcessSection';
 import TestimonialsAndAwards from './components/TestimonialsAndAwards';
@@ -16,15 +17,6 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
-
-// Unique video scrubbing ranges per page starting from different points
-const PAGE_TIME_RANGES = {
-  home: [0, 60],        // Full 0.0s to 60.0s complete architectural journey
-  services: [8, 26],    // Starts at 8.0s (algorithmic planning & dynamic structural forms)
-  projects: [22, 38],   // Starts at 22.0s (structural forms & built monuments)
-  about: [34, 48],      // Starts at 34.0s (engineering precision & atelier details)
-  contact: [48, 60],    // Starts at 48.0s (finished exterior monument landmark)
-};
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
@@ -34,7 +26,6 @@ export default function App() {
   const autoScrollRafRef = useRef(null);
 
   // Initialize Lenis only on desktop / non-touch devices for buttery smooth desktop scroll
-  // On mobile/touch devices, use 100% native hardware-accelerated smooth scrolling (no overhead)
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth < 768);
@@ -54,8 +45,6 @@ export default function App() {
       });
 
       lenisRef.current = lenis;
-
-      // Synchronize Lenis with GSAP ScrollTrigger
       lenis.on('scroll', ScrollTrigger.update);
 
       return () => {
@@ -68,7 +57,7 @@ export default function App() {
   useEffect(() => {
     const syncHash = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
-      if (['home', 'services', 'projects', 'about', 'contact'].includes(hash)) {
+      if (['home', 'services', 'projects', 'blog', 'about', 'contact'].includes(hash)) {
         setActivePage(hash);
       }
     };
@@ -86,7 +75,7 @@ export default function App() {
     }
 
     let lastTimestamp = performance.now();
-    const scrollSpeed = 1.6; // Ultra creamy cinematic velocity (pixels per 60fps frame)
+    const scrollSpeed = 1.6;
 
     const step = (now) => {
       const delta = Math.min(32, now - lastTimestamp);
@@ -98,7 +87,6 @@ export default function App() {
       const currentScroll = lenisRef.current ? lenisRef.current.scroll : window.scrollY;
 
       if (currentScroll >= maxScroll - 4) {
-        // Gently stop when bottom of page is reached
         setIsAutoScrolling(false);
         return;
       }
@@ -115,7 +103,6 @@ export default function App() {
 
     autoScrollRafRef.current = requestAnimationFrame(step);
 
-    // Gently pause auto-scroll if user manually scrolls, touches or presses keys
     const pauseOnInteraction = (e) => {
       if (e.isTrusted) {
         setIsAutoScrolling(false);
@@ -144,7 +131,6 @@ export default function App() {
     setIsAutoScrolling(prev => !prev);
   };
 
-  // Ultra smooth page navigation with entrance micro-animation & video recalibration
   const handleNavigate = (pageId) => {
     if (pageId === activePage) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -167,12 +153,9 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-transparent text-[#f8fafc] overflow-x-hidden selection:bg-[#F5C242]/40 selection:text-white">
+    <div className="relative min-h-screen bg-white text-slate-900 overflow-x-hidden selection:bg-[#F5C242]/40 selection:text-black">
       
-      {/* FIXED 60-SECOND CINEMATIC BACKGROUND VIDEO ENGINE */}
-      <GlobalVideoBackground timeRange={PAGE_TIME_RANGES[activePage] || [0, 60]} />
-
-      {/* Global Fixed Navigation with 5 Pages & Header Auto-Scroll Button */}
+      {/* Global Fixed Navigation */}
       <Navbar 
         activePage={activePage} 
         onNavigate={handleNavigate}
@@ -180,7 +163,7 @@ export default function App() {
         toggleAutoScroll={toggleAutoScroll}
       />
 
-      {/* Main Page Content with Featherlight Micro-Transitions */}
+      {/* Main Page Content */}
       <main 
         className={`relative z-10 transition-all duration-300 ease-out ${
           isTransitioning 
@@ -189,101 +172,174 @@ export default function App() {
         }`}
       >
         {/* =========================================================
-            PAGE 1: HOME PAGE (Master Long Architectural Experience)
+            PAGE 1: HOME PAGE
+            Video strictly in Hero section (0s - 18s).
+            All remaining sections have white background!
             ========================================================= */}
         {activePage === 'home' && (
           <div className="animate-fadeIn">
+            {/* HERO WITH VIDEO ONLY */}
             <HeroSection onNavigate={handleNavigate} />
-            <AboutSection />
-            <ServicesSection onNavigate={handleNavigate} />
-            <ProjectsSection />
-            <EngineeringShowcase />
-            <ProcessSection />
-            <TestimonialsAndAwards />
-            <ContactSection isStandalone={false} />
+
+            {/* REMAINING HOME PAGE: CRISP CLEAN WHITE BACKGROUND */}
+            <div className="bg-white text-slate-900">
+              <AboutSection />
+              <ServicesSection onNavigate={handleNavigate} />
+              <ProjectsSection />
+              <EngineeringShowcase />
+              <ProcessSection />
+              <TestimonialsAndAwards />
+              <ContactSection isStandalone={false} />
+            </div>
           </div>
         )}
 
         {/* =========================================================
-            PAGE 2: SERVICES PAGE (Directly After Home Page!)
-            Starting video timeline from 8.0s (architectural planning)
+            PAGE 2: SERVICES PAGE
+            Hero section with looping video from 8.0s - 24.0s.
+            Remaining page with white background.
             ========================================================= */}
         {activePage === 'services' && (
-          <div className="animate-fadeIn pt-16 sm:pt-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-12 pb-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[10px] sm:text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)] flex-wrap">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-                <span>PAGE 02 // DISCIPLINARY PRACTICES & EPC</span>
-                <span className="text-white/30 hidden sm:inline">•</span>
-                <span className="text-white/70 hidden sm:inline">TIMELINE: 08.0s – 26.0s</span>
+          <div className="animate-fadeIn">
+            {/* SERVICES HERO WITH DEDICATED LOOPING VIDEO (8s - 24s) */}
+            <section className="relative min-h-[65vh] sm:min-h-[75vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-28 sm:pt-36 pb-16 overflow-hidden">
+              <HeroVideoBackground startTime={8} endTime={24} />
+              
+              <div className="relative z-10 max-w-5xl mx-auto w-full">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+                  <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+                  <span>PAGE 02 // DISCIPLINARY PRACTICES & EPC</span>
+                  <span className="text-white/40 hidden sm:inline">•</span>
+                  <span className="text-white/90 hidden sm:inline">ALGORITHMIC PLANNING & STRUCTURAL FORMS</span>
+                </div>
+                <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight mb-4 text-white leading-[1.05]">
+                  INTEGRATED <span className="text-gold-shining">PRACTICES.</span>
+                </h1>
+                <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
+                  Direct turnkey architectural engineering: computational parametric form synthesis, nonlinear FEA civil engineering, and robotic EPC general contracting.
+                </p>
               </div>
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-3 break-words">
-                <span className="text-white inline-block">INTEGRATED</span> <span className="text-gold-shining inline-block">PRACTICES.</span>
-              </h1>
-              <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl font-light">
-                Direct turnkey architectural engineering: computational parametric form synthesis, nonlinear FEA civil engineering, and robotic EPC general contracting.
-              </p>
+            </section>
+
+            {/* REMAINING SERVICES BODY: CLEAN WHITE BACKGROUND */}
+            <div className="bg-white text-slate-900">
+              <ServicesSection onNavigate={handleNavigate} />
             </div>
-            <ServicesSection onNavigate={handleNavigate} />
           </div>
         )}
 
         {/* =========================================================
-            PAGE 3: PROJECTS PAGE (Concise Built Portfolio Display)
-            Starting video timeline from 22.0s (structural forms)
+            PAGE 3: PROJECTS PAGE
+            Hero section with looping video from 22.0s - 38.0s.
+            Remaining page with white background.
             ========================================================= */}
         {activePage === 'projects' && (
-          <div className="animate-fadeIn pt-16 sm:pt-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-12 pb-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[10px] sm:text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)] flex-wrap">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-                <span>PAGE 03 // BUILT MONUMENTS & COMMISSIONS</span>
-                <span className="text-white/30 hidden sm:inline">•</span>
-                <span className="text-white/70 hidden sm:inline">TIMELINE: 22.0s – 38.0s</span>
+          <div className="animate-fadeIn">
+            {/* PROJECTS HERO WITH DEDICATED LOOPING VIDEO (22s - 38s) */}
+            <section className="relative min-h-[65vh] sm:min-h-[75vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-28 sm:pt-36 pb-16 overflow-hidden">
+              <HeroVideoBackground startTime={22} endTime={38} />
+              
+              <div className="relative z-10 max-w-5xl mx-auto w-full">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+                  <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+                  <span>PAGE 03 // BUILT MONUMENTS & COMMISSIONS</span>
+                  <span className="text-white/40 hidden sm:inline">•</span>
+                  <span className="text-white/90 hidden sm:inline">CIVIC TOWERS & HIGH-RISE ARCHITECTURE</span>
+                </div>
+                <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight mb-4 text-white leading-[1.05]">
+                  BUILT <span className="text-gold-shining">MONUMENTS.</span>
+                </h1>
+                <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
+                  Completed and ongoing civic towers, post-tensioned cantilevered monolithic villas, and turnkey urban masterplans engineered to stand for centuries.
+                </p>
               </div>
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-3 break-words">
-                <span className="text-white inline-block">BUILT</span> <span className="text-gold-shining inline-block">MONUMENTS.</span>
-              </h1>
-              <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl font-light">
-                Scroll to inspect our completed and ongoing civic towers, post-tensioned cantilevered monolithic villas, and turnkey urban masterplans.
-              </p>
+            </section>
+
+            {/* REMAINING PROJECTS BODY: CLEAN WHITE BACKGROUND */}
+            <div className="bg-white text-slate-900">
+              <ProjectsSection />
             </div>
-            <ProjectsSection />
           </div>
         )}
 
         {/* =========================================================
-            PAGE 4: ABOUT PAGE (Studio Manifesto & Pipeline)
-            Starting video timeline from 34.0s (engineering details)
+            PAGE 4: BLOG & RESEARCH PAGE (SEO, AEO, and GEO)
+            Directly after Projects page!
+            Hero section with dedicated video (18s - 34s).
+            Remaining page with white background & footer.
+            ========================================================= */}
+        {activePage === 'blog' && (
+          <div className="animate-fadeIn">
+            <BlogSection onNavigate={handleNavigate} />
+          </div>
+        )}
+
+        {/* =========================================================
+            PAGE 5: ABOUT PAGE
+            Hero section with looping video from 34.0s - 48.0s.
+            Remaining page with white background.
             ========================================================= */}
         {activePage === 'about' && (
-          <div className="animate-fadeIn pt-16 sm:pt-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-12 pb-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/40 border border-[#F5C242]/60 text-[10px] sm:text-[11px] font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_12px_rgba(245,194,66,0.25)] flex-wrap">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F5C242] shadow-[0_0_8px_#F5C242] animate-ping" />
-                <span>PAGE 04 // THE ATELIER & MANIFESTO</span>
-                <span className="text-white/30 hidden sm:inline">•</span>
-                <span className="text-white/70 hidden sm:inline">TIMELINE: 34.0s – 48.0s</span>
+          <div className="animate-fadeIn">
+            {/* ABOUT HERO WITH DEDICATED LOOPING VIDEO (34s - 48s) */}
+            <section className="relative min-h-[65vh] sm:min-h-[75vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-28 sm:pt-36 pb-16 overflow-hidden">
+              <HeroVideoBackground startTime={34} endTime={48} />
+              
+              <div className="relative z-10 max-w-5xl mx-auto w-full">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+                  <span className="w-2 h-2 rounded-full bg-[#F5C242] shadow-[0_0_8px_#F5C242] animate-ping" />
+                  <span>PAGE 05 // THE ATELIER & MANIFESTO</span>
+                  <span className="text-white/40 hidden sm:inline">•</span>
+                  <span className="text-white/90 hidden sm:inline">STRUCTURAL PHILOSOPHY & PIPELINE</span>
+                </div>
+                <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight mb-4 text-white leading-[1.05]">
+                  THE <span className="text-gold-shining">STUDIO.</span>
+                </h1>
+                <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
+                  Sculptural architecture backed by computational civil engineering. We act as master architect and primary constructor to eliminate third-party dilution.
+                </p>
               </div>
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-3 break-words">
-                <span className="text-white inline-block">THE</span> <span className="text-gold-shining inline-block">STUDIO.</span>
-              </h1>
-              <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl font-light">
-                Sculptural architecture backed by computational civil engineering. We act as master architect and primary constructor to eliminate third-party dilution.
-              </p>
+            </section>
+
+            {/* REMAINING ABOUT BODY: CLEAN WHITE BACKGROUND */}
+            <div className="bg-white text-slate-900">
+              <AboutSection />
+              <ProcessSection />
             </div>
-            <AboutSection />
-            <ProcessSection />
           </div>
         )}
 
         {/* =========================================================
-            PAGE 5: CONTACT US PAGE (Fast, Direct Consultation & Ateliers)
-            Starting video timeline from 48.0s (culmination landmark)
+            PAGE 6: CONTACT US PAGE
+            Hero section with looping video from 48.0s - 60.0s.
+            Remaining page with white background.
             ========================================================= */}
         {activePage === 'contact' && (
-          <div className="animate-fadeIn pt-16 sm:pt-20">
-            <ContactSection isStandalone={true} />
+          <div className="animate-fadeIn">
+            {/* CONTACT HERO WITH DEDICATED LOOPING VIDEO (48s - 60s) */}
+            <section className="relative min-h-[55vh] sm:min-h-[65vh] flex flex-col justify-center px-4 sm:px-8 md:px-14 pt-28 sm:pt-36 pb-12 overflow-hidden">
+              <HeroVideoBackground startTime={48} endTime={60} />
+              
+              <div className="relative z-10 max-w-5xl mx-auto w-full">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/50 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-4 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
+                  <span className="w-2 h-2 rounded-full bg-[#F5C242] shadow-[0_0_8px_#F5C242] animate-ping" />
+                  <span>PAGE 06 // GLOBAL ATELIERS & INQUIRY</span>
+                  <span className="text-white/40 hidden sm:inline">•</span>
+                  <span className="text-white/90 hidden sm:inline">DIRECT PRINCIPAL ENGAGEMENT</span>
+                </div>
+                <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight mb-4 text-white leading-[1.05]">
+                  COMMISSION A <span className="text-gold-shining">LANDMARK.</span>
+                </h1>
+                <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
+                  Connect with Mohammed Abdul Rahman and our principal architectural civil engineering leads in New York, Zurich, London, and Dubai.
+                </p>
+              </div>
+            </section>
+
+            {/* REMAINING CONTACT BODY: CLEAN WHITE BACKGROUND */}
+            <div className="bg-white text-slate-900">
+              <ContactSection isStandalone={true} />
+            </div>
           </div>
         )}
       </main>
