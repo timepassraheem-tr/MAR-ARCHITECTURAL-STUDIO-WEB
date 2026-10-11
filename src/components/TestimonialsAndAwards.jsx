@@ -1,43 +1,39 @@
 import React from 'react';
 import { Award, Trophy, Star, Quote } from 'lucide-react';
 
-const AWARDS = [
+const PEER_PRINCIPLES = [
   {
-    year: "2025",
-    title: "GLOBAL ARCHITECTURAL EXCELLENCE AWARD",
-    org: "International Union of Architects (UIA)",
-    project: "The Monolith Tower (Hudson Yards)"
+    topic: "PARAMETRIC CANTILEVER DYNAMICS",
+    standard: "Nonlinear Finite Element Modeling",
+    summary: "Integrated computational modeling allows long-span cantilevers and complex geometries while upholding rigorous gravity and lateral load safety criteria."
   },
   {
-    year: "2024",
-    title: "CIVIL ENGINEERING STRUCTURAL INNOVATION PRIZE",
-    org: "American Society of Civil Engineers (ASCE)",
-    project: "Villa Solitude Cantilever"
+    topic: "SEISMIC RESILIENCE STANDARDS",
+    standard: "Base Isolation & Ductile Detailing",
+    summary: "Subterranean base bearings decouple superstructures during critical ground accelerations, mitigating structural distress."
   },
   {
-    year: "2024",
-    title: "WORLD TIMBER & SEISMIC ARCHITECTURE MEDAL",
-    org: "Kyoto Architectural Council",
-    project: "Aeon Contemporary Pavilion"
+    topic: "INTEGRATED EPC DELIVERY",
+    standard: "Unified Architect-Led Execution",
+    summary: "Single-source architectural and engineering oversight eliminates sub-contractor communication gaps and protects design intent from inception to site completion."
   },
   {
-    year: "2023",
-    title: "SUSTAINABLE MONUMENT OF THE YEAR (LEED PLATINUM)",
-    org: "European Architectural Forum",
-    project: "Nexus Fintech Headquarters"
+    topic: "PERMANENT MATERIALITY",
+    standard: "Acoustic Crystal & Architectural Concrete",
+    summary: "Prioritizing honest raw materials engineered for durability, weather patina, and low long-term maintenance overhead."
   }
 ];
 
-const REVIEWS = [
+const COLLABORATION_NOTES = [
   {
-    quote: "MAR Architectural Studio has accomplished what many structural engineers believed impossible: achieving 42-meter post-tensioned cantilevers while preserving the poetic weightlessness of pure geometry.",
-    author: "Elena Rostova, Ph.D.",
-    role: "Chair of Structural Mechanics, Zurich Federal Institute"
+    quote: "MAR Architectural Studio integrates computational form design with practical civil engineering coordination, removing the typical friction between architectural concepts and real structural execution.",
+    attribution: "Engineering Collaboration Assessment",
+    role: "Structural & Civil Practice Framework"
   },
   {
-    quote: "Their unified model as master architect and general civil contractor eliminated the compromises that plague large-scale developments. Delivered on millimeter tolerance.",
-    author: "Marcus Sterling",
-    role: "Managing Director, Sterling Capital Real Estate"
+    quote: "Direct access to the studio's principal architect and lead engineers provides clarity on feasibility, zoning allowances, and realistic budgeting from day one.",
+    attribution: "Private Commission Client Feedback",
+    role: "Luxury Residential & Commercial Inquiries"
   }
 ];
 
@@ -51,54 +47,54 @@ export default function TestimonialsAndAwards() {
           <div>
             <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-3 flex items-center gap-2 font-bold">
               <span className="w-2 h-2 bg-[#F5C242] shadow-[0_0_8px_#F5C242]" />
-              SECTION 08 // PEER ACCLAIM & AWARDS
+              SECTION 08 // PRACTICE PRINCIPLES & COLLABORATION
             </div>
             <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] break-words">
-              GLOBAL HONORS
+              ENGINEERING RIGOR
             </h2>
           </div>
           <div className="text-left md:text-right font-mono text-xs text-[#cbd5e1] max-w-xs drop-shadow-md">
-            INTERNATIONAL RECOGNITION FOR STRUCTURAL AUDACITY AND ARCHITECTURAL POETRY
+            CORE DISCIPLINE PRINCIPLES AND COLLABORATIVE DELIVERY FRAMEWORKS
           </div>
         </div>
 
-        {/* Awards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
-          {AWARDS.map((aw, i) => (
+        {/* Practice Principles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+          {PEER_PRINCIPLES.map((principle, i) => (
             <div 
               key={i}
-              className="p-6 rounded-sm backdrop-blur-md bg-black/20 border border-white/15 hover:border-[#F5C242]/70 hover:shadow-[0_0_15px_rgba(245,194,66,0.25)] hover:bg-black/35 transition-all flex flex-col justify-between shadow-lg"
+              className="p-6 rounded-sm backdrop-blur-md bg-black/40 border border-white/15 hover:border-[#F5C242]/70 hover:shadow-[0_0_15px_rgba(245,194,66,0.25)] hover:bg-black/55 transition-all flex flex-col justify-between shadow-lg"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <Trophy className="w-5 h-5 text-[#F5C242] drop-shadow-[0_0_8px_rgba(245,194,66,0.6)]" />
-                  <span className="text-xs font-mono text-[#94a3b8]">{aw.year}</span>
+                  <Award className="w-5 h-5 text-[#F5C242] drop-shadow-[0_0_8px_rgba(245,194,66,0.6)]" />
+                  <span className="text-[11px] font-mono text-[#F5C242]/90">0{i + 1}</span>
                 </div>
                 <h4 className="text-sm font-serif font-bold text-white mb-2 leading-snug drop-shadow-md">
-                  {aw.title}
+                  {principle.topic}
                 </h4>
-                <div className="text-xs font-mono text-white mb-2 font-bold tracking-wide">
-                  {aw.org}
+                <div className="text-xs font-mono text-[#F5C242] mb-3 font-semibold tracking-wide">
+                  {principle.standard}
                 </div>
-              </div>
-              <div className="pt-3 border-t border-white/10 text-[10px] font-mono text-[#cbd5e1]">
-                FOR: {aw.project}
+                <p className="text-xs text-[#cbd5e1] leading-relaxed font-sans">
+                  {principle.summary}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Testimonials */}
+        {/* Collaboration Notes / Reviews */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {REVIEWS.map((rev, i) => (
-            <div key={i} className="p-8 rounded-sm backdrop-blur-md bg-black/25 border border-white/15 relative shadow-xl">
+          {COLLABORATION_NOTES.map((rev, i) => (
+            <div key={i} className="p-8 rounded-sm backdrop-blur-md bg-black/40 border border-white/15 relative shadow-xl">
               <Quote className="w-8 h-8 text-[#F5C242]/70 drop-shadow-[0_0_8px_rgba(245,194,66,0.4)] mb-4" />
               <p className="text-sm md:text-base text-[#f1f5f9] italic leading-relaxed mb-6 font-light drop-shadow-sm">
                 “{rev.quote}”
               </p>
               <div>
                 <div className="text-sm font-serif font-bold text-white">
-                  {rev.author}
+                  {rev.attribution}
                 </div>
                 <div className="text-xs font-mono text-[#cbd5e1]">
                   {rev.role}

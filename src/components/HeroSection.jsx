@@ -84,22 +84,40 @@ export default function HeroSection({ onNavigate = () => {} }) {
           </p>
         </div>
 
-        {/* Transparent navigation pills */}
+        {/* Primary and Secondary Action CTAs */}
+        <div className="flex flex-wrap items-center gap-3.5 mb-8">
+          <button
+            onClick={() => onNavigate('projects')}
+            className="gold-shining-btn px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2 rounded-sm shadow-xl shadow-[#F5C242]/30 cursor-pointer"
+          >
+            <span>EXPLORE OUR PROJECTS</span>
+            <span className="text-base font-normal">→</span>
+          </button>
+
+          <button
+            onClick={() => onNavigate('contact')}
+            className="px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-[#F5C242] border border-white/25 hover:border-[#F5C242] bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-sm transition-all flex items-center gap-2 cursor-pointer shadow-md"
+          >
+            <span>DISCUSS YOUR PROJECT</span>
+          </button>
+        </div>
+
+        {/* Quick Discipline Navigation Pills */}
         <div id="hero-badges-grid" className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-2xl text-[10px] sm:text-[11px] font-sans pointer-events-auto" style={{ willChange: 'transform' }}>
-          <button onClick={() => onNavigate('services')} className="p-2.5 sm:p-3 rounded-sm backdrop-blur-md bg-black/25 border border-white/15 hover:border-[#F5C242] hover:shadow-[0_0_15px_rgba(245,194,66,0.3)] hover:bg-black/50 transition-all group text-left cursor-pointer">
-            <span className="text-[#94a3b8] block text-[8px] sm:text-[9px]">01 // PRACTICES</span>
+          <button onClick={() => onNavigate('services')} className="p-2.5 sm:p-3 rounded-sm backdrop-blur-md bg-black/30 border border-white/15 hover:border-[#F5C242] hover:shadow-[0_0_15px_rgba(245,194,66,0.3)] hover:bg-black/50 transition-all group text-left cursor-pointer">
+            <span className="text-slate-400 block text-[8px] sm:text-[9px]">01 // PRACTICES</span>
             <span className="text-white group-hover:text-[#F5C242] font-semibold transition-colors">SERVICES →</span>
           </button>
-          <button onClick={() => onNavigate('projects')} className="p-2.5 sm:p-3 rounded-sm backdrop-blur-md bg-black/25 border border-white/15 hover:border-[#F5C242] hover:shadow-[0_0_15px_rgba(245,194,66,0.3)] hover:bg-black/50 transition-all group text-left cursor-pointer">
-            <span className="text-[#94a3b8] block text-[8px] sm:text-[9px]">02 // WORKS</span>
-            <span className="text-white group-hover:text-[#F5C242] font-semibold transition-colors">PROJECTS →</span>
+          <button onClick={() => onNavigate('projects')} className="p-2.5 sm:p-3 rounded-sm backdrop-blur-md bg-black/30 border border-white/15 hover:border-[#F5C242] hover:shadow-[0_0_15px_rgba(245,194,66,0.3)] hover:bg-black/50 transition-all group text-left cursor-pointer">
+            <span className="text-slate-400 block text-[8px] sm:text-[9px]">02 // WORKS</span>
+            <span className="text-white group-hover:text-[#F5C242] font-semibold transition-colors">PORTFOLIO →</span>
           </button>
-          <button onClick={() => onNavigate('about')} className="p-2.5 sm:p-3 rounded-sm backdrop-blur-md bg-black/25 border border-white/15 hover:border-[#F5C242] hover:shadow-[0_0_15px_rgba(245,194,66,0.3)] hover:bg-black/50 transition-all group text-left cursor-pointer">
-            <span className="text-[#94a3b8] block text-[8px] sm:text-[9px]">03 // STUDIO</span>
+          <button onClick={() => onNavigate('about')} className="p-2.5 sm:p-3 rounded-sm backdrop-blur-md bg-black/30 border border-white/15 hover:border-[#F5C242] hover:shadow-[0_0_15px_rgba(245,194,66,0.3)] hover:bg-black/50 transition-all group text-left cursor-pointer">
+            <span className="text-slate-400 block text-[8px] sm:text-[9px]">03 // STUDIO</span>
             <span className="text-white group-hover:text-[#F5C242] font-semibold transition-colors">ABOUT US →</span>
           </button>
-          <button onClick={() => onNavigate('contact')} className="p-2.5 sm:p-3 rounded-sm backdrop-blur-md bg-black/25 border border-white/15 hover:border-[#F5C242] hover:shadow-[0_0_15px_rgba(245,194,66,0.3)] hover:bg-black/50 transition-all group text-left cursor-pointer">
-            <span className="text-[#94a3b8] block text-[8px] sm:text-[9px]">04 // INQUIRY</span>
+          <button onClick={() => onNavigate('contact')} className="p-2.5 sm:p-3 rounded-sm backdrop-blur-md bg-black/30 border border-white/15 hover:border-[#F5C242] hover:shadow-[0_0_15px_rgba(245,194,66,0.3)] hover:bg-black/50 transition-all group text-left cursor-pointer">
+            <span className="text-slate-400 block text-[8px] sm:text-[9px]">04 // INQUIRY</span>
             <span className="text-white group-hover:text-[#F5C242] font-semibold transition-colors">CONTACT →</span>
           </button>
         </div>

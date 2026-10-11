@@ -112,59 +112,59 @@ export default function AboutSection() {
               </p>
             </div>
 
-            {/* Key Metric Highlights - Translucent Glass */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono">
-              <div className="p-4 rounded-sm backdrop-blur-md bg-black/20 border border-white/15">
-                <div className="text-2xl md:text-3xl font-bold text-gold-radiant drop-shadow-[0_0_10px_rgba(245,194,66,0.6)]">26+</div>
-                <div className="text-[10px] text-[#cbd5e1] uppercase tracking-wider mt-1">Global Awards</div>
+            {/* Core Architectural Pillars */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-sans">
+              <div className="p-4 rounded-sm backdrop-blur-md bg-black/40 border border-white/15">
+                <div className="text-xl md:text-2xl font-bold text-gold-radiant">FEA & BIM</div>
+                <div className="text-[11px] text-slate-300 mt-1">Nonlinear Modeling</div>
               </div>
-              <div className="p-4 rounded-sm backdrop-blur-md bg-black/20 border border-white/15">
-                <div className="text-2xl md:text-3xl font-bold text-white">$2.4B</div>
-                <div className="text-[10px] text-[#cbd5e1] uppercase tracking-wider mt-1">Portfolio Built</div>
+              <div className="p-4 rounded-sm backdrop-blur-md bg-black/40 border border-white/15">
+                <div className="text-xl md:text-2xl font-bold text-white">Zone 4</div>
+                <div className="text-[11px] text-slate-300 mt-1">Seismic Resilience</div>
               </div>
-              <div className="p-4 rounded-sm backdrop-blur-md bg-black/20 border border-white/15">
-                <div className="text-2xl md:text-3xl font-bold text-white">0.0%</div>
-                <div className="text-[10px] text-[#cbd5e1] uppercase tracking-wider mt-1">Structural Failure</div>
+              <div className="p-4 rounded-sm backdrop-blur-md bg-black/40 border border-white/15">
+                <div className="text-xl md:text-2xl font-bold text-white">Turnkey</div>
+                <div className="text-[11px] text-slate-300 mt-1">Project Delivery</div>
               </div>
-              <div className="p-4 rounded-sm backdrop-blur-md bg-black/20 border border-white/15">
-                <div className="text-2xl md:text-3xl font-bold text-gold-radiant drop-shadow-[0_0_10px_rgba(245,194,66,0.6)]">150Y</div>
-                <div className="text-[10px] text-[#cbd5e1] uppercase tracking-wider mt-1">Design Lifespan</div>
+              <div className="p-4 rounded-sm backdrop-blur-md bg-black/40 border border-white/15">
+                <div className="text-xl md:text-2xl font-bold text-gold-radiant">High-Spec</div>
+                <div className="text-[11px] text-slate-300 mt-1">Material Integrity</div>
               </div>
             </div>
           </div>
 
-          {/* Right Blueprint Technical Dossier - Translucent Glass */}
-          <div id="about-dossier" className="lg:col-span-5 rounded-sm backdrop-blur-md bg-black/25 border border-white/20 p-5 sm:p-8 relative group shadow-xl" style={{ willChange: 'transform' }}>
+          {/* Right Blueprint Technical Dossier */}
+          <div id="about-dossier" className="lg:col-span-5 rounded-sm backdrop-blur-md bg-black/35 border border-white/20 p-5 sm:p-8 relative group shadow-xl" style={{ willChange: 'transform' }}>
             <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 min-w-[32px] max-w-[32px] min-h-[32px] max-h-[32px] rounded-full border border-[#F5C242]/40 bg-black/60 p-0.5 flex items-center justify-center shrink-0 overflow-hidden">
                   <img src="/logo.png" alt="MAR Architectural Studio Emblem" className="w-full h-full max-w-full max-h-full object-contain" />
                 </div>
                 <div className="text-xs font-sans text-white font-bold tracking-wider uppercase">
-                  ENGINEERING CREDENTIALS
+                  TECHNICAL FRAMEWORK
                 </div>
               </div>
               <div className="text-[10px] font-mono text-[#F5C242] border border-[#F5C242]/50 px-2 py-0.5 rounded-sm font-bold shadow-[0_0_8px_rgba(245,194,66,0.3)]">
-                SPEC // 2026.REV
+                SPEC // PRACTICE STANDARDS
               </div>
             </div>
 
             <div className="space-y-3 sm:space-y-4 mb-6">
-              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-mono gap-1">
-                <span className="text-[#cbd5e1]">ISO 9001 / ISO 14001:</span>
-                <span className="text-white font-semibold">CERTIFIED CONTINUOUS</span>
+              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-sans gap-1">
+                <span className="text-[#cbd5e1]">COMPUTATIONAL MODELING:</span>
+                <span className="text-white font-semibold">Parametric BIM & 3D Coordination</span>
               </div>
-              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-mono gap-1">
-                <span className="text-[#cbd5e1]">BIM LEVEL 3 & 4D DIGITAL TWIN:</span>
-                <span className="text-[#F5C242] font-semibold drop-shadow-[0_0_6px_rgba(245,194,66,0.5)]">MANDATORY PIPELINE</span>
+              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-sans gap-1">
+                <span className="text-[#cbd5e1]">ENGINEERING STANDARDS:</span>
+                <span className="text-[#F5C242] font-semibold">Seismic & Gravity Load Integration</span>
               </div>
-              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-mono gap-1">
-                <span className="text-[#cbd5e1]">SEISMIC DAMPING CLASSIFICATION:</span>
-                <span className="text-white font-semibold">ZONE 4 BASE ISOLATION</span>
+              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-sans gap-1">
+                <span className="text-[#cbd5e1]">CIVIL CONTRACTING:</span>
+                <span className="text-white font-semibold">Turnkey & Site Supervision</span>
               </div>
-              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-mono gap-1">
-                <span className="text-[#cbd5e1]">MAX CANTILEVER SPAN RATIO:</span>
-                <span className="text-white font-bold">1 : 8.4 POST-TENSIONED</span>
+              <div className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs font-sans gap-1">
+                <span className="text-[#cbd5e1]">CLIENT COLLABORATION:</span>
+                <span className="text-white font-bold">Direct Principal Engagement</span>
               </div>
             </div>
 

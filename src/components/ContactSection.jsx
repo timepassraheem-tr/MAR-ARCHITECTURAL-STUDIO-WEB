@@ -14,28 +14,32 @@ import {
 
 const STUDIOS = [
   {
-    city: "NEW YORK",
-    address: "540 West 26th Street, Chelsea",
-    phone: "+1 (212) 890-4420",
-    email: "mararchitecturalstudio@gmail.com"
+    city: "PRINCIPAL ATELIER & HEADQUARTERS",
+    address: "Direct Consultation with Mohammed Abdul Rahman",
+    phone: "+91 9985185209",
+    email: "mararchitecturalstudio@gmail.com",
+    badge: "DIRECT PRACTICE"
   },
   {
-    city: "ZURICH",
-    address: "Gotthardstrasse 26, Enge",
-    phone: "+41 44 288 9100",
-    email: "mararchitecturalstudio@gmail.com"
+    city: "DUBAI & GCC REGIONAL INQUIRIES",
+    address: "Gulf Cooperation Council & UAE Project Coordination",
+    phone: "+91 9985185209 (WhatsApp)",
+    email: "mararchitecturalstudio@gmail.com",
+    badge: "PROJECT COORDINATION"
   },
   {
-    city: "LONDON",
-    address: "1 Berkeley Street, Mayfair",
-    phone: "+44 20 7946 0199",
-    email: "mararchitecturalstudio@gmail.com"
+    city: "LONDON & EUROPEAN COMMISSIONS",
+    address: "UK & European Architectural Consultations",
+    phone: "+91 9985185209 (WhatsApp)",
+    email: "mararchitecturalstudio@gmail.com",
+    badge: "PRIVATE CLIENTS"
   },
   {
-    city: "DUBAI",
-    address: "DIFC Gate Precinct 4, Floor 12",
-    phone: "+971 4 362 7000",
-    email: "mararchitecturalstudio@gmail.com"
+    city: "NORTH AMERICAN CONSULTATIONS",
+    address: "US & Canadian High-Rise / Residential Projects",
+    phone: "+91 9985185209 (WhatsApp)",
+    email: "mararchitecturalstudio@gmail.com",
+    badge: "REMOTE FEASIBILITY"
   }
 ];
 
@@ -633,17 +637,17 @@ Transmitted to Owner Mohammed Abdul Rahman (mararchitecturalstudio@gmail.com)`
 
             <div className="space-y-4">
               {STUDIOS.map((st, i) => (
-                <div key={i} className="p-5 rounded-sm backdrop-blur-md bg-black/20 border border-white/15 hover:border-white/35 transition-all font-mono shadow-md">
+                <div key={i} className="p-5 rounded-sm bg-[#12151d] border border-white/15 hover:border-[#F5C242]/50 transition-all font-sans shadow-md">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-serif font-bold text-white drop-shadow-sm">{st.city}</span>
-                    <span className="text-[10px] text-white font-bold">STUDIO 0{i + 1}</span>
+                    <span className="text-sm font-display font-bold text-white drop-shadow-sm">{st.city}</span>
+                    <span className="text-[10px] text-gold-radiant font-bold border border-[#F5C242]/40 px-2 py-0.5 rounded-sm">{st.badge}</span>
                   </div>
                   <div className="text-xs text-[#cbd5e1] mb-1 flex items-center gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-[#F5C242]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#F5C242] shrink-0" />
                     <span>{st.address}</span>
                   </div>
                   <div className="text-xs text-[#94a3b8] flex items-center gap-2">
-                    <Mail className="w-3.5 h-3.5" />
+                    <Mail className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                     <span>{st.email}</span>
                   </div>
                 </div>

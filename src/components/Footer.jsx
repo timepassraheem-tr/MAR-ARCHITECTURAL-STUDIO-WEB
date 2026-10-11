@@ -30,11 +30,11 @@ export default function Footer({ onNavigate = () => {} }) {
               </span>
             </button>
             <p className="text-xs font-sans text-[#cbd5e1] max-w-sm leading-relaxed">
-              Master architecture, structural civil engineering, and general contracting firm delivering permanent civic and ultra-luxury landmarks worldwide.
+              Integrated architectural design, structural civil engineering coordination, and turnkey project execution for civic, commercial, and luxury residential commissions.
             </p>
             <div className="text-xs font-sans text-gold-radiant font-semibold flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-[#F5C242]" />
-              <span>ISO 9001 / ISO 14001 / OHSAS 18001 COMPLIANT</span>
+              <span>FEA NONLINEAR MODELING & PE-STAMPED ENGINEERING</span>
             </div>
           </div>
 

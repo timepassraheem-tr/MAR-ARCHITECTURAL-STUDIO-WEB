@@ -19,73 +19,79 @@ const PROJECTS = [
     id: "PRJ-01",
     title: "THE MONOLITH TOWER",
     category: "HIGH-RISE",
-    location: "Hudson Yards, New York",
+    location: "Metropolitan High-Density Zone",
+    status: "CONCEPT & FEASIBILITY STUDY",
     year: "2025",
     area: "840,000 SQ.FT.",
     height: "385 METERS",
     structure: "Steel Exoskeleton + Tuned Mass Damper",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
-    description: "A 78-story parametric tower featuring a diagrid titanium exoskeleton, eliminating interior column loads and offering 360-degree column-free panoramic floor plates."
+    description: "Parametric high-rise structural concept featuring a diagrid exoskeleton to eliminate interior column loads and evaluate lateral wind drift under high-aspect ratios."
   },
   {
     id: "PRJ-02",
     title: "VILLA SOLITUDE CANTILEVER",
     category: "LUXURY RESIDENTIAL",
-    location: "Lake Lucerne, Switzerland",
+    location: "Alpine Escarpment Setting",
+    status: "ARCHITECTURAL DESIGN PROPOSAL",
     year: "2024",
     area: "18,500 SQ.FT.",
     height: "3 STORIES",
-    structure: "Post-Tensioned C100 Architectural Concrete",
+    structure: "Post-Tensioned Architectural Concrete",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-    description: "A monumental residence projecting 28 meters over alpine bedrock. Triple-glazed acoustic glass dissolves the boundary between raw cliff and refined interior travertine."
+    description: "Private hillside residential study featuring a 28-meter cantilevered living pavilion engineered with post-tensioned slab tiebacks into bedrock anchors."
   },
   {
     id: "PRJ-03",
     title: "AEON CONTEMPORARY PAVILION",
     category: "CIVIC & CULTURAL",
-    location: "Kyoto, Japan",
+    location: "Seismic Zone 4 Context",
+    status: "STRUCTURAL INNOVATION CONCEPT",
     year: "2025",
     area: "125,000 SQ.FT.",
     height: "24 METERS",
-    structure: "Carbon-Fiber Glulam + Base Isolation Bearings",
+    structure: "Glulam Timber Grid + Base Isolation",
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
-    description: "Engineered to withstand magnitude 9.0 seismic events while creating a continuous light-diffusing origami roof canopy floating above pristine reflecting pools."
+    description: "Cultural exhibition pavilion concept exploring base-isolated seismic dampening beneath an origami-inspired folded timber geometric canopy."
   },
   {
     id: "PRJ-04",
     title: "NEXUS FINTECH HEADQUARTERS",
     category: "COMMERCIAL",
-    location: "Canary Wharf, London",
+    location: "Urban Commercial Core",
+    status: "SUSTAINABLE OFFICE DESIGN STUDY",
     year: "2024",
     area: "620,000 SQ.FT.",
     height: "190 METERS",
-    structure: "Hybrid Composite Mega-Columns + Smart Façade",
+    structure: "Composite Mega-Columns + Smart Façade",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-    description: "A net-zero operational headquarters with a kinetic photovoltaic double-skin façade that tracks solar zenith to generate 35% of building energy."
+    description: "Commercial tower envelope study incorporating dynamic solar-tracking louvers to minimize peak cooling demand in high-density urban settings."
   },
   {
     id: "PRJ-05",
     title: "DESERT MIRAGE RESIDENCES",
     category: "LUXURY RESIDENTIAL",
-    location: "Palm Springs, California",
+    location: "Arid Climate Region",
+    status: "PASSIVE RESIDENTIAL CONCEPT",
     year: "2026",
     area: "24,000 SQ.FT.",
     height: "2 STORIES",
     structure: "Rammed Earth Monoliths + Weathering Steel",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
-    description: "Monolithic thermal-mass rammed earth walls naturally moderating extreme diurnal temperature shifts, shaded by deep horizontal cantilever canopies."
+    description: "Thermal-mass rammed earth residential cluster designed to mitigate extreme diurnal temperature swings with deep structural overhangs."
   },
   {
     id: "PRJ-06",
-    title: "CENTRAL CIVIC OPERA FORUM",
+    title: "CENTRAL CIVIC WATERFRONT FORUM",
     category: "CIVIC & CULTURAL",
-    location: "Oslo Waterfront, Norway",
-    year: "2023",
+    location: "Coastal Urban Edge",
+    status: "URBAN TOPOGRAPHY STUDY",
+    year: "2024",
     area: "340,000 SQ.FT.",
     height: "48 METERS",
-    structure: "Cast Steel Nodes + White Granite Plinth",
+    structure: "Cast Steel Nodes + Granite Plinth",
     image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80",
-    description: "An undulating civic topography rising seamlessly from the fjord waters, creating a public walkable rooftop plaza and acoustically sealed world-class auditoriums."
+    description: "Public civic waterfront master plan study integrating pedestrian promenade ramps and acoustically isolated auditorium structures."
   }
 ];
 
@@ -133,15 +139,15 @@ export default function ProjectsSection() {
           <div>
             <div className="text-xs font-mono text-gold-radiant tracking-ultra uppercase mb-3 flex items-center gap-2 font-bold">
               <span className="w-2 h-2 bg-[#F5C242] shadow-[0_0_8px_#F5C242]" />
-              SECTION 04 // BUILT MONUMENTS
+              SECTION 04 // ARCHITECTURAL & STRUCTURAL PORTFOLIO
             </div>
             <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold text-white tracking-tight break-words">
-              PORTFOLIO ARCHIVE
+              DESIGN PORTFOLIO
             </h2>
           </div>
-          <div className="text-left md:text-right font-mono text-xs text-[#94a3b8] max-w-xs">
+          <div className="text-left md:text-right font-mono text-xs text-[#cbd5e1] max-w-xs">
             CIVIC • RESIDENTIAL • COMMERCIAL<br />
-            GLOBAL REGISTER OF COMPLETED COMMISSION
+            STRUCTURAL STUDIES & ARCHITECTURAL COMMISSIONS
           </div>
         </div>
 

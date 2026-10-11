@@ -13,6 +13,7 @@ import BlogSection from './components/BlogSection';
 import EngineeringShowcase from './components/EngineeringShowcase';
 import ProcessSection from './components/ProcessSection';
 import TestimonialsAndAwards from './components/TestimonialsAndAwards';
+import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
@@ -189,6 +190,7 @@ export default function App() {
               <EngineeringShowcase />
               <ProcessSection />
               <TestimonialsAndAwards />
+              <FAQSection />
               <ContactSection isStandalone={false} />
             </div>
           </div>
@@ -321,15 +323,15 @@ export default function App() {
               <div className="relative z-10 max-w-5xl mx-auto w-full">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-[#F5C242]/70 text-[10px] sm:text-xs font-sans text-gold-radiant font-bold mb-5 shadow-[0_0_15px_rgba(245,194,66,0.3)] flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-[#F5C242] shadow-[0_0_8px_#F5C242] animate-ping" />
-                  <span>GLOBAL ATELIERS // DIRECT ENGAGEMENT</span>
+                  <span>CONSULTATION & INQUIRY // DIRECT ENGAGEMENT</span>
                   <span className="text-white/40 hidden sm:inline">•</span>
-                  <span className="text-white/90 hidden sm:inline">PRINCIPAL INTAKE & FEASIBILITY</span>
+                  <span className="text-white/90 hidden sm:inline">PRINCIPAL INTAKE & FEASIBILITY REVIEW</span>
                 </div>
                 <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-display font-black tracking-tight mb-5 text-white leading-[1.05]">
-                  COMMISSION A <span className="text-gold-shining">LANDMARK.</span>
+                  COMMISSION A <span className="text-gold-shining">PROJECT.</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl font-light leading-relaxed">
-                  Connect with Mohammed Abdul Rahman and our principal architectural civil engineering leads in New York, Zurich, London, and Dubai.
+                  Connect directly with Mohammed Abdul Rahman and our structural engineering team for project feasibility, turnkey architectural design, and civil consultations.
                 </p>
               </div>
             </section>
